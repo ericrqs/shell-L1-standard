@@ -79,7 +79,7 @@ CLI prompts on some switches can be completely arbitrary. A JSON setting is incl
 
 ### Driver implementation tips
 
-Even if your driver makes REST calls and doesn't maintain a persistent connection, you still need 'login' just to save the address, username, and password for use by in the mapping functions.   
+Even if your driver makes REST calls and doesn't maintain a persistent connection, you still need to implement 'login' to store the address, username, and password for later use by the mapping functions.   
 
 #### SSH
 
