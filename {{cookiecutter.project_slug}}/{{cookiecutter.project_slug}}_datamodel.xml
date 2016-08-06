@@ -67,7 +67,7 @@
       <AttachedAttributes/>
       <AttributeValues />
       <Models>
-        <ResourceModel Name="Blade {{cookiecutter.model_name}}" Description="" SupportsConcurrentCommands="false">
+        <ResourceModel Name="{{cookiecutter.model_name}} Blade" Description="" SupportsConcurrentCommands="false">
           <AttachedAttributes />
           <AttributeValues />
           <ParentModels>
@@ -81,11 +81,11 @@
       <AttachedAttributes />
       <AttributeValues />
       <Models>
-	    <ResourceModel Name="Port {{cookiecutter.model_name}}" SupportsConcurrentCommands="false">
+	    <ResourceModel Name="{{cookiecutter.model_name}} Port" SupportsConcurrentCommands="false">
           <AttachedAttributes/>
           <AttributeValues/>
           <ParentModels>
-            <ParentModelName>Blade {{cookiecutter.model_name}}</ParentModelName>
+            <ParentModelName>{{cookiecutter.model_name}} Blade</ParentModelName>
           </ParentModels>
           <Drivers />
         </ResourceModel>
