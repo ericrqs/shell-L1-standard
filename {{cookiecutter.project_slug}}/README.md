@@ -66,9 +66,9 @@ Import {{cookiecutter.project_slug}}_datamodel.xml into Resource Manager
 
 The only .py you should need to edit is {{cookiecutter.project_slug}}_l1_handler.py.
 
-Address, username, and password become known to the driver only when 'login' is called. 
+The address, username, and password of the switch resource become known to the driver only when 'login' is called. 
 
-The port number is not stored on the resource. If it can't just be hard coded in the driver, take the setting in c:\Program Files (x86)\QualiSystems\CloudShell\Server\Drivers\\{{cookiecutter.project_slug}}_runtime_configuration.json.
+The port number is not stored on the resource. If it can't just be hard coded in the driver, take the setting from c:\Program Files (x86)\QualiSystems\CloudShell\Server\Drivers\\{{cookiecutter.project_slug}}_runtime_configuration.json.
 
 ### JSON config
 The sample code includes hard-coding of default values for the JSON settings.
@@ -79,7 +79,7 @@ CLI prompts on some switches can be completely arbitrary. A JSON setting is incl
 
 ### Driver implementation tips
 
-Even if your driver makes REST calls and doesn't maintain a persistent connection, you still need login in order to store the address, username, and password.   
+Even if your driver makes REST calls and doesn't maintain a persistent connection, you still need 'login' just to save the address, username, and password for use by in the mapping functions.   
 
 #### SSH
 
