@@ -85,6 +85,22 @@ Even if your driver makes REST calls and doesn't maintain a persistent connectio
 
 For an SSH device, it is convenient to use Paramiko.
 
+    import paramiko
+    
+    def receive(self):
+        # read until the prompt regex is found
+        prompt_regex = '>'
+        rv = ''
+        while True:
+            self.channel.settimeout(30)
+            r = self.channel.recv(2048)
+            if r:
+                rv += r
+            t = re.sub(r'\x1b\[\d+m, '', rv)
+            if not r or len(re.findall(prompt_regex, t)) > 0:
+                return t
+
+    def login(self, )
         ssh = paramiko.SSHClient()
         ssh.load_system_host_keys()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -93,31 +109,18 @@ For an SSH device, it is convenient to use Paramiko.
                     username=username,
                     password=password,
                     look_for_keys=True)
-        channel = self._ssh.invoke_shell()
+        self.channel = self._ssh.invoke_shell()
+        self.receive() # eat banner
         
-        prompt_regex = '>'
-        def receive():
-            rv = ''
-            while True:
-                channel.settimeout(30)
-                r = channel.recv(2048)
-                if r:
-                    rv += r
-                t = re.sub(r'\1b\[\d+m, '', rv)
-                if not r or len(re.findall(prompt_regex, t)) > 0:
-                    return t
-
-        receive() # eat banner
-        
-        channel.send(command)
-        result = receive()
+        self.channel.send(command)
+        result = self.receive() # command result
 
 Communication with your device may have unique timing requirements. 
 
 You might have to handle SSH connections closed by the remote host. It never hurts to disconnect and reconnect.
 
-To log in with an RSA key file (id_rsa), pass look_for_keys=True to the SSH connect() as shown above. Paramiko will search for ~/.ssh/id_rsa. The driver runs in the system account, so the file should be put at C:\Windows\System32\Config\systemprofile\.ssh\id_rsa on the execution server. Continue to specify the username and password on the resource. The password will be used to decrypt the id_rsa file, and along with the username this key will be used to log in.   
+To log in with an RSA key file (id_rsa), pass look_for_keys=True to the SSH connect() as shown above. Paramiko will search for ~/.ssh/id_rsa. The driver runs in the system account, so the key file should be at C:\Windows\System32\Config\systemprofile\\.ssh\id_rsa on the execution server. Continue to specify the username and password on the resource. The password will be used to decrypt the id_rsa file, and along with the username this key will be used to log in. This feature has never been tested with a blank password, so create the id_rsa with a password to be safe.    
 
-If you connect to a color terminal, the returned data may be polluted with control sequences in the form ESC[123m (regex: r'\x1b\[\d+m'). This could interfere with your detection of the prompt regex. Buffer all the received data and look for the prompt regex in a separate copy of the data with the control sequences deleted.
+If you connect to a color terminal, the returned data may be polluted with control sequences in the form ESC[123m (regex: r'\x1b\\[\d+m'). This could interfere with your detection of the prompt regex. Buffer all the received data and look for the prompt regex in a separate copy of the data with the control sequences deleted.
 
 
