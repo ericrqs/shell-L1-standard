@@ -1,0 +1,17 @@
+{
+  "full_name": "Anonymous",
+  "email": "info@quali.com",
+  "github_username": "qualisystemslab",
+  "project_name": "Sample",
+  "family_name" : "L1 Switch",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-','_') }}",
+  "model_name" : "{{ cookiecutter.project_slug.replace('_', ' ').title().replace(' ','') }}",
+  "driver_name" : "{{ cookiecutter.model_name }}Driver",
+  "project_short_description": "{{ cookiecutter.project_name }} L1 driver",
+  "release_date": "2016-1-22",
+  "pypi_username": "{{ cookiecutter.github_username }}",
+  "year": "2016",
+  "version": "0.1.0",
+  "server_version" : "7.0",
+  "use_pypi_deployment_with_travis": "y"
+}
