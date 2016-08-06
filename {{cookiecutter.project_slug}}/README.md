@@ -101,7 +101,7 @@ For an SSH device, it is convenient to use Paramiko.
                     return t
 
         def do_command(self, command):
-            self.channel.send(command)
+            self.channel.send(command + '\n')
             return self.receive()
             
         def login(self, address, username, password)
