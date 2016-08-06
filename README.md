@@ -1,3 +1,4 @@
+    (get pyinstaller)
     git clone https://github.com/ericrqs/shell-L1-standard.git
     cd shell-L1-standard
     cookiecutter .
