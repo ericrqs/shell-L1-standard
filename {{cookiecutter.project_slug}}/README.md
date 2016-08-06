@@ -86,34 +86,36 @@ Even if your driver makes REST calls and doesn't maintain a persistent connectio
 For an SSH device, it is convenient to use Paramiko.
 
     import paramiko
-    
-    def receive(self):
-        # read until the prompt regex is found
-        prompt_regex = '>'
-        rv = ''
-        while True:
-            self.channel.settimeout(30)
-            r = self.channel.recv(2048)
-            if r:
-                rv += r
-            t = re.sub(r'\x1b\[\d+m, '', rv)
-            if not r or len(re.findall(prompt_regex, t)) > 0:
-                return t
+    # ...
+        def receive(self):
+            # read until the prompt regex is found
+            prompt_regex = '>'
+            rv = ''
+            while True:
+                self.channel.settimeout(30)
+                r = self.channel.recv(2048)
+                if r:
+                    rv += r
+                t = re.sub(r'\x1b\[\d+m, '', rv)
+                if not r or len(re.findall(prompt_regex, t)) > 0:
+                    return t
 
-    def login(self, )
-        ssh = paramiko.SSHClient()
-        ssh.load_system_host_keys()
-        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        ssh.connect(address,
-                    port=22,
-                    username=username,
-                    password=password,
-                    look_for_keys=True)
-        self.channel = self._ssh.invoke_shell()
-        self.receive() # eat banner
-        
-        self.channel.send(command)
-        result = self.receive() # command result
+        def do_command(self, command):
+            self.channel.send(command)
+            return self.receive()
+            
+        def login(self, address, username, password)
+            ssh = paramiko.SSHClient()
+            ssh.load_system_host_keys()
+            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            ssh.connect(address,
+                        port=22,
+                        username=username,
+                        password=password,
+                        look_for_keys=True)
+            self.channel = ssh.invoke_shell()
+            self.receive() # eat banner
+         
 
 Communication with your device may have unique timing requirements. 
 
