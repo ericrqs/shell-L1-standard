@@ -96,7 +96,7 @@ For an SSH device, it is convenient to use Paramiko.
                 r = self.channel.recv(2048)
                 if r:
                     rv += r
-                t = re.sub(r'\x1b\[\d+m, '', rv)
+                t = re.sub(r'\x1b\[\d+m', '', rv)
                 if not r or len(re.findall(prompt_regex, t)) > 0:
                     return t
 
