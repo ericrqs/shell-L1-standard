@@ -105,15 +105,16 @@ For an SSH device, it is convenient to use Paramiko.
             return self.receive()
             
         def login(self, address, username, password)
-            ssh = paramiko.SSHClient()
-            ssh.load_system_host_keys()
-            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            ssh.connect(address,
+            self.ssh = paramiko.SSHClient()
+            # must store the SSHClient in a non-local variable to avoid garbage collection
+            self.ssh.load_system_host_keys()
+            self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            self.ssh.connect(address,
                         port=22,
                         username=username,
                         password=password,
                         look_for_keys=True)
-            self.channel = ssh.invoke_shell()
+            self.channel = self.ssh.invoke_shell()
             self.receive() # eat banner
          
 
