@@ -14,12 +14,11 @@
     - git clone https://github.com/ericrqs/shell-L1-standard.git
     - cd shell-L1-standard
 
-- Change "Sample" to your driver name in cookiecutter.json
-
 - In Git Bash:
     - cookiecutter .
-    - (push Enter 20 times)
-
+    - Replace "Sample" with your driver name
+    - Push Enter many times to accept other defaults
+    
 - Customize YourDriverName\\YourDriverName_l1_handler.py
 
 - In CMD:
