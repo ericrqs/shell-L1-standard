@@ -20,7 +20,7 @@
     - cookiecutter .
     - (push Enter 20 times)
 
-- Customize YourDriverName\<your driver name>_l1_handler.py
+- Customize YourDriverName\\YourDriverName_l1_handler.py
 
 - In CMD:
     - cd YourDriverName
