@@ -9,6 +9,7 @@ IF EXIST %driverdir% GOTO :havecs
 set driverdir="c:\Program Files (x86)\QualiSystems\TestShell\Server\Drivers"
 :havecs
 
+
 copy dist\{{cookiecutter.model_name}}.exe                     %driverdir%
 copy {{cookiecutter.project_slug}}_runtime_configuration.json %driverdir%
 
