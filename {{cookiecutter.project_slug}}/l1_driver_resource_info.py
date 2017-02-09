@@ -7,17 +7,17 @@
 # - See example usage in <project>_l1_handler.py
 
 class L1DriverResourceInfo:
-    def __init__(self, name, address, family, model, map_path=None, serial='-1'):
+    def __init__(self, name, full_address, family, model, map_path=None, serial='-1'):
         """
         :param name: str
-        :param address: str
+        :param full_address: str
         :param family: str
         :param model: str
         :param map_path: str
         :param serial: str
         """
         self.name = name
-        self.address = address
+        self.address = full_address
         self.family = family
         self.model = model
         self.serial = serial
@@ -60,7 +60,7 @@ class L1DriverResourceInfo:
 
         return indent(tabs,
                       '''<ResourceInfo
-                              Name="''' + self.name + '''"
+        Name="''' + self.name + '''"
         Address="''' + self.address + '''"
         ResourceFamilyName="''' + self.family + '''"
         ResourceModelName="''' + self.model + '''"
@@ -73,8 +73,7 @@ class L1DriverResourceInfo:
                               ]
                       )) + '''
     </ChildResources>
-    <ResourceAttributes>
-''' + ('\n'.join(
+    <ResourceAttributes>''' + ('\n'.join(
                           [
                               '''<Attribute
                                       Name="''' + attrname + '''"
@@ -82,7 +81,8 @@ class L1DriverResourceInfo:
                 Value="''' + self.attrname2typevaluetuple[attrname][1] + '''" />'''
                               for attrname in self.attrname2typevaluetuple.keys()
                               ]
-                      )) + '''    </ResourceAttributes>
+                      )) + '''
+    </ResourceAttributes>
 ''' +
                       ('''    <ResourceMapping><IncomingMapping>''' + self.map_path + '''</IncomingMapping></ResourceMapping>''' if self.map_path else '') +
                       '''</ResourceInfo>
