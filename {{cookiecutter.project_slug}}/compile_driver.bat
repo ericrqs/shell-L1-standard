@@ -1,8 +1,20 @@
+@echo off
+net session >nul 2>&1
+if %errorLevel% == 0 (
+    echo ok
+) else (
+    echo This program must be run from an administrator cmd prompt
+    goto :fail
+)
+
+@echo on
+
+
 pyinstaller --onefile driver.spec
 
 taskkill /f /im {{cookiecutter.model_name}}.exe
 
-sleep 3
+timeout 3
 
 set driverdir="c:\Program Files (x86)\QualiSystems\CloudShell\Server\Drivers"
 IF EXIST %driverdir% GOTO :havecs
