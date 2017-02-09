@@ -68,7 +68,7 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
 
         for module in range(3):
             blade = L1DriverResourceInfo('%s%0.2d' % (self._blade_prefix, module),
-                                         str(module),
+                                         '%s/%d' % (address, module),
                                          self._blade_family,
                                          self._blade_model,
                                          serial='-1')
@@ -76,7 +76,7 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
             for portaddr in range(5):
                 port = L1DriverResourceInfo(
                     '%s%0.2d' % (self._port_prefix, portaddr),
-                    str(portaddr),
+                    '%s/%d/%d' % (address, module, portaddr),
                     self._port_family,
                     self._port_model,
                     map_path=None,
