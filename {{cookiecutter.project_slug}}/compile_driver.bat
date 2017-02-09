@@ -4,7 +4,7 @@ if %errorLevel% == 0 (
     echo ok
 ) else (
     echo This program must be run from an administrator cmd prompt
-    exit
+    goto :fail
 )
 
 @echo on
@@ -30,3 +30,5 @@ copy {{cookiecutter.project_slug}}_runtime_configuration.json %driverdir%
 copy {{cookiecutter.project_slug}}_datamodel.xml               release\
 copy dist\{{cookiecutter.model_name}}.exe                      release\
 copy {{cookiecutter.project_slug}}_runtime_configuration.json  release\
+
+:fail
