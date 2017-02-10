@@ -1,6 +1,6 @@
 {
   "common_variable": {
-    "connection_port": 9871,
+    "connection_port": 22,
     "device_prompt": "[0-9a-zA-Z@][0-9a-zA-Z@]*>"
   },
   "driver_variable": {
