@@ -85,4 +85,5 @@ class L1DriverResourceInfo:
 ''' +
                       ('''    <ResourceMapping><IncomingMapping>''' + self.map_path + '''</IncomingMapping></ResourceMapping>\n''' if self.map_path else '\n') +
 '''</ResourceInfo>
+
 ''')
