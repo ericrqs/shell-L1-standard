@@ -9,6 +9,7 @@ if %errorLevel% == 0 (
 
 @echo on
 
+pip install cloudshell-core
 
 pyinstaller --onefile driver.spec
 
