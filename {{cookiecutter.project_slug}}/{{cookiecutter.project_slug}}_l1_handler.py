@@ -84,6 +84,8 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
                     PORT_MODEL,
                     map_path='%s/%d/%d' % (address, module, 4-portaddr),
                     serial='-1')
+                # port.set_attribute('My Attribute 1', 'xxx', typename='String')
+                # port.set_attribute('My Attribute 2', 'yyy', typename='String')
                 blade.add_subresource(port)
 
         self._logger.info('get_resource_description returning xml: [[[' + sw.to_string() + ']]]')
