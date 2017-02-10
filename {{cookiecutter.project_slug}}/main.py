@@ -1,10 +1,10 @@
 # CloudShell L1 main
 #
-# It should be unnecessary to edit this file.
+# It should not be necessary to edit this file.
 #
 # This file will be the entry point of {{cookiecutter.model_name}}.exe
 #
-# It will be invoked by CloudShell as {{cookiecutter.model_name}} <listening port number>
+# It will be invoked by CloudShell as {{cookiecutter.model_name}}.exe <listening port number>
 
 from cloudshell.core.logger.qs_logger import get_qs_logger
 from l1_driver import L1Driver
