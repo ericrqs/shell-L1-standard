@@ -1,9 +1,9 @@
 # CloudShell L1 resource handler interface
 #
-# It should be unnecessary to edit this file.
+# It should not be necessary to edit this file.
 #
 # - All work for your L1 driver will be in a class that implements this interface
-# - An instance of your implementation class will be passed as input to L1Driver
+# - An instance of your implementation class will be passed to L1Driver from main.py
 
 from abc import abstractmethod
 
