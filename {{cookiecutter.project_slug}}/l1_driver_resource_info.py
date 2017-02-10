@@ -59,19 +59,20 @@ class L1DriverResourceInfo:
             return t + (('\n' + t).join(s.split('\n'))).strip() + '\n'
 
         return indent(tabs,
-'''<ResourceInfo Name="''' + self.name +
-                      '''" Address="''' + self.address +
-                      '''" ResourceFamilyName="''' + self.family +
-                      '''" ResourceModelName="''' + self.model +
-                      '''" SerialNumber="''' + self.serial + '''">
+'''<ResourceInfo Name="{name}" Address="{address}" ResourceFamilyName="{family}" ResourceModelName="{model}" SerialNumber="{serial}">
     <ChildResources>
-''' + (''.join([x.to_string(tabs=tabs + '    ') for x in self.subresources])) + '''    </ChildResources>
-    <ResourceAttributes>
-''' + (''.join(['''        <Attribute Name="''' + attrname +
-                            '''" Type="''' + self.attrname2typevaluetuple[attrname][0] +
-                            '''" Value="''' + self.attrname2typevaluetuple[attrname][1] + '''" />\n'''
-                for attrname in self.attrname2typevaluetuple.keys()
-    ])) +
-'''    </ResourceAttributes>
-''' + ('''    <ResourceMapping><IncomingMapping>''' + self.map_path + '''</IncomingMapping></ResourceMapping>\n''' if self.map_path else '') + 
-'''</ResourceInfo>''')
+{children}    </ChildResources>
+    <ResourceAttributes>{attributes}
+    </ResourceAttributes>
+{mapping}</ResourceInfo>'''.format(
+    name=self.name,
+    address=self.address,
+    family=self.family,
+    model=self.model,
+    serial=self.serial,
+    children=''.join([x.to_string(tabs=tabs + '    ') for x in self.subresources]),
+    attributes=''.join(['''        <Attribute Name="{name}" Type="{type}" Value="{value}" />\n'''.format(name=attrname, type=type_value[0], value=type_value[1])
+                        for attrname, type_value in self.attrname2typevaluetuple.iteritems()
+                        ]),
+    mapping='''    <ResourceMapping><IncomingMapping>''' + self.map_path + '''</IncomingMapping></ResourceMapping>''' if self.map_path else ''
+))
