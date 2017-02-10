@@ -1,6 +1,6 @@
 # CloudShell L1 resource autoload XML helper
 #
-# It should be unnecessary to edit this file.
+# It should not be necessary to edit this file.
 #
 # - Generates the autoload XML resource format to return to CloudShell
 # - Subresources are also represented with nested instances of this class
@@ -71,8 +71,7 @@ class L1DriverResourceInfo:
                               x.to_string(tabs=tabs + '    ')
                               for x in self.subresources
                               ]
-                      )) + '''
-    </ChildResources>
+                      )) + '''</ChildResources>
     <ResourceAttributes>''' + ('\n'.join(
                           [
                               '''<Attribute
@@ -85,5 +84,6 @@ class L1DriverResourceInfo:
     </ResourceAttributes>
 ''' +
                       ('''    <ResourceMapping><IncomingMapping>''' + self.map_path + '''</IncomingMapping></ResourceMapping>''' if self.map_path else '') +
-                      '''</ResourceInfo>
+                      '''
+</ResourceInfo>
                       ''')
