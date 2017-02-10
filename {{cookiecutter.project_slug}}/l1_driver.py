@@ -1,6 +1,6 @@
 # CloudShell L1 driver core
 #
-# It should be unnecessary to edit this file.
+# It should not be necessary to edit this file.
 #
 # - Listens on a port passed on the command line, e.g. Sample.exe 4000
 # - Receives commands from CloudShell
