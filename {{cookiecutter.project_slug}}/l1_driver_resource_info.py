@@ -74,5 +74,5 @@ class L1DriverResourceInfo:
     attributes=''.join(['''        <Attribute Name="{name}" Type="{type}" Value="{value}" />\n'''.format(name=attrname, type=type_value[0], value=type_value[1])
                         for attrname, type_value in self.attrname2typevaluetuple.iteritems()
                         ]),
-    mapping='''    <ResourceMapping><IncomingMapping>''' + self.map_path + '''</IncomingMapping></ResourceMapping>''' if self.map_path else ''
+    mapping='''    <ResourceMapping><IncomingMapping>''' + self.map_path + '''</IncomingMapping></ResourceMapping>\n''' if self.map_path else ''
 ))
