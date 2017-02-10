@@ -66,9 +66,9 @@ class L1DriverResourceInfo:
         ResourceModelName="''' + self.model + '''"
         SerialNumber="''' + self.serial + '''">
     <ChildResources>
-''' + ('\n'.join(
+''' + (''.join(
                           [
-                              x.to_string(tabs=tabs + '    ')
+                              x.to_string(tabs=tabs + '    ') + '\n'
                               for x in self.subresources
                               ]
                       )) + '''    </ChildResources>
