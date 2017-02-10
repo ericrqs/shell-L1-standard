@@ -6,17 +6,10 @@ import sys
 from l1_driver_resource_info import L1DriverResourceInfo
 from l1_handler_base import L1HandlerBase
 
-class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
-    def __init__(self, logger):
-        self._switch_family = '{{cookiecutter.family_name}}'
-        self._switch_model = '{{cookiecutter.model_name}}'
-        self._blade_prefix = 'module'
-        self._blade_family = '{{cookiecutter.family_name}} Blade'
-        self._blade_model = '{{cookiecutter.model_name}} Blade'
-        self._port_prefix = 'port'
-        self._port_family = '{{cookiecutter.family_name}} Port'
-        self._port_model = '{{cookiecutter.model_name}} Port'
 
+class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
+    
+    def __init__(self, logger):
         self._logger = logger
 
         self._host = None
@@ -30,7 +23,7 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
             self._logger.warn('Failed to read JSON config file: ' + str(e))
             o = {}
 
-        self._port = o.get("common_variable", {}).get("connection_port", 9871)
+        self._port = o.get("common_variable", {}).get("connection_port", 22)
         self._prompt = o.get("common_variable", {}).get("device_prompt", "[0-9a-zA-Z@][0-9a-zA-Z@]*>")
 
         self._example_driver_setting = o.get("driver_variable", {}).get("example_driver_setting", False)
@@ -64,22 +57,31 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
         :param address: str
         :return: L1DriverResourceInfo
         """
-        sw = L1DriverResourceInfo('', address, self._switch_family, self._switch_model, serial='-1')
+        SWITCH_FAMILY = '{{cookiecutter.family_name}}'
+        SWITCH_MODEL = '{{cookiecutter.model_name}}'
+        BLADE_PREFIX = 'module'
+        BLADE_FAMILY = '{{cookiecutter.family_name}} Blade'
+        BLADE_MODEL = '{{cookiecutter.model_name}} Blade'
+        PORT_PREFIX = 'port'
+        PORT_FAMILY = '{{cookiecutter.family_name}} Port'
+        PORT_MODEL = '{{cookiecutter.model_name}} Port'
+
+        sw = L1DriverResourceInfo('', address, SWITCH_FAMILY, SWITCH_MODEL, serial='-1')
 
 
         for module in range(3):
-            blade = L1DriverResourceInfo('%s%0.2d' % (self._blade_prefix, module),
+            blade = L1DriverResourceInfo('%s%0.2d' % (BLADE_PREFIX, module),
                                          '%s/%d' % (address, module),
-                                         self._blade_family,
-                                         self._blade_model,
+                                         BLADE_FAMILY,
+                                         BLADE_MODEL,
                                          serial='-1')
             sw.add_subresource(blade)
             for portaddr in range(5):
                 port = L1DriverResourceInfo(
-                    '%s%0.2d' % (self._port_prefix, portaddr),
+                    '%s%0.2d' % (PORT_PREFIX, portaddr),
                     '%s/%d/%d' % (address, module, portaddr),
-                    self._port_family,
-                    self._port_model,
+                    PORT_FAMILY,
+                    PORT_MODEL,
                     map_path='%s/%d/%d' % (address, module, 4-portaddr),
                     serial='-1')
                 blade.add_subresource(port)
