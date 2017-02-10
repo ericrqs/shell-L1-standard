@@ -66,6 +66,7 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
         """
         sw = L1DriverResourceInfo('', address, self._switch_family, self._switch_model, serial='-1')
 
+
         for module in range(3):
             blade = L1DriverResourceInfo('%s%0.2d' % (self._blade_prefix, module),
                                          '%s/%d' % (address, module),
@@ -79,7 +80,7 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
                     '%s/%d/%d' % (address, module, portaddr),
                     self._port_family,
                     self._port_model,
-                    map_path=None,
+                    map_path='%s/%d/%d' % (address, module, 4-portaddr),
                     serial='-1')
                 blade.add_subresource(port)
 
