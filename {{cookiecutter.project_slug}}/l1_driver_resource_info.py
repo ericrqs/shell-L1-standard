@@ -59,31 +59,13 @@ class L1DriverResourceInfo:
             return t + (('\n' + t).join(s.split('\n'))).strip()
 
         return indent(tabs,
-'''<ResourceInfo
-        Name="''' + self.name + '''"
-        Address="''' + self.address + '''"
-        ResourceFamilyName="''' + self.family + '''"
-        ResourceModelName="''' + self.model + '''"
-        SerialNumber="''' + self.serial + '''">
+'''<ResourceInfo Name="''' + self.name + '''" Address="''' + self.address + '''" ResourceFamilyName="''' + self.family + '''" ResourceModelName="''' + self.model + '''" SerialNumber="''' + self.serial + '''">
     <ChildResources>
-''' + (''.join(
-                          [
-                              x.to_string(tabs=tabs + '    ') + '\n'
-                              for x in self.subresources
-                              ]
-                      )) + '''    </ChildResources>
+''' + (''.join([x.to_string(tabs=tabs + '    ') for x in self.subresources])) + '''    </ChildResources>
     <ResourceAttributes>
-''' + (''.join(
-                          [
-'''        <Attribute
-                Name="''' + attrname + '''"
-                Type="''' + self.attrname2typevaluetuple[attrname][0] + '''"
-                Value="''' + self.attrname2typevaluetuple[attrname][1] + '''" />\n'''
-                              for attrname in self.attrname2typevaluetuple.keys()
-                              ]
-                      )) + '''    </ResourceAttributes>
-''' +
-                      ('''    <ResourceMapping><IncomingMapping>''' + self.map_path + '''</IncomingMapping></ResourceMapping>\n''' if self.map_path else '\n') +
+''' + (''.join(['''        <Attribute Name="''' + attrname + '''" Type="''' + self.attrname2typevaluetuple[attrname][0] + '''" Value="''' + self.attrname2typevaluetuple[attrname][1] + '''" />\n'''
+                for attrname in self.attrname2typevaluetuple.keys()
+    ])) + '''    </ResourceAttributes>
+''' + ('''    <ResourceMapping><IncomingMapping>''' + self.map_path + '''</IncomingMapping></ResourceMapping>''' if self.map_path else '') + 
 '''</ResourceInfo>
-
 ''')
