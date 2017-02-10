@@ -62,8 +62,8 @@ class L1DriverResourceInfo:
 '''<ResourceInfo Name="{name}" Address="{address}" ResourceFamilyName="{family}" ResourceModelName="{model}" SerialNumber="{serial}">
     <ChildResources>
 {children}    </ChildResources>
-    <ResourceAttributes>{attributes}
-    </ResourceAttributes>
+    <ResourceAttributes>
+{attributes}    </ResourceAttributes>
 {mapping}</ResourceInfo>'''.format(
     name=self.name,
     address=self.address,
