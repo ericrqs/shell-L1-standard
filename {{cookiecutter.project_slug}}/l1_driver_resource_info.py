@@ -71,17 +71,17 @@ class L1DriverResourceInfo:
                               x.to_string(tabs=tabs + '    ')
                               for x in self.subresources
                               ]
-                      )) + '''</ChildResources>
-    <ResourceAttributes>''' + ('\n'.join(
+                      )) + '''    </ChildResources>
+    <ResourceAttributes>
+''' + (''.join(
                           [
-                              '''<Attribute
-                                      Name="''' + attrname + '''"
+'''        <Attribute
+                Name="''' + attrname + '''"
                 Type="''' + self.attrname2typevaluetuple[attrname][0] + '''"
-                Value="''' + self.attrname2typevaluetuple[attrname][1] + '''" />'''
+                Value="''' + self.attrname2typevaluetuple[attrname][1] + '''" />\n'''
                               for attrname in self.attrname2typevaluetuple.keys()
                               ]
-                      )) + '''
-    </ResourceAttributes>
+                      )) + '''    </ResourceAttributes>
 ''' +
                       ('''    <ResourceMapping><IncomingMapping>''' + self.map_path + '''</IncomingMapping></ResourceMapping>''' if self.map_path else '') +
                       '''
