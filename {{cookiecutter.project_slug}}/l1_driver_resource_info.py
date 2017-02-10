@@ -59,7 +59,7 @@ class L1DriverResourceInfo:
             return t + (('\n' + t).join(s.split('\n'))).strip()
 
         return indent(tabs,
-                      '''<ResourceInfo
+'''<ResourceInfo
         Name="''' + self.name + '''"
         Address="''' + self.address + '''"
         ResourceFamilyName="''' + self.family + '''"
@@ -83,7 +83,6 @@ class L1DriverResourceInfo:
                               ]
                       )) + '''    </ResourceAttributes>
 ''' +
-                      ('''    <ResourceMapping><IncomingMapping>''' + self.map_path + '''</IncomingMapping></ResourceMapping>''' if self.map_path else '') +
-                      '''
-</ResourceInfo>
-                      ''')
+                      ('''    <ResourceMapping><IncomingMapping>''' + self.map_path + '''</IncomingMapping></ResourceMapping>\n''' if self.map_path else '\n') +
+'''</ResourceInfo>
+''')
