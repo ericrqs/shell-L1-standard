@@ -15,7 +15,7 @@ def add_data_files(related_path, root_path="."):
     return templates
 
 a = Analysis(['main.py'],
-             pathex=["."],
+             pathex=[".", "../cloudshell-core", "../cloudshell-cli"],
              binaries=None,
              datas=[],
              hiddenimports=[],

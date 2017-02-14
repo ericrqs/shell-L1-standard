@@ -5,7 +5,8 @@ import sys
 
 from l1_driver_resource_info import L1DriverResourceInfo
 from l1_handler_base import L1HandlerBase
-
+# from {{cookiecutter.project_slug}}_tl1_connection import {{cookiecutter.model_name}}TL1Connection
+# from {{cookiecutter.project_slug}}_cli_connection import {{cookiecutter.model_name}}CliConnection, {{cookiecutter.model_name}}DefaultCommandMode, {{cookiecutter.model_name}}EnableCommandMode, {{cookiecutter.model_name}}ConfigCommandMode
 
 class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
     
@@ -16,6 +17,9 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
         self._username = None
         self._password = None
 
+        # self._tl1_connection = None
+        # self._cli_connection = None
+
         try:
             with open(os.path.join(os.path.dirname(sys.argv[0]), '{{cookiecutter.project_slug}}_runtime_configuration.json')) as f:
                 o = json.loads(f.read())
@@ -24,7 +28,9 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
             o = {}
 
         self._port = o.get("common_variable", {}).get("connection_port", 22)
-        self._prompt = o.get("common_variable", {}).get("device_prompt", "[0-9a-zA-Z@][0-9a-zA-Z@]*>")
+        # {{cookiecutter.model_name}}DefaultCommandMode.PROMPT_REGEX = o.get("common_variable", {}).get("default_prompt", r'>\s*$')
+        # {{cookiecutter.model_name}}EnableCommandMode.PROMPT_REGEX = o.get("common_variable", {}).get("enable_prompt", r'#\s*$')
+        # {{cookiecutter.model_name}}ConfigCommandMode.PROMPT_REGEX = o.get("common_variable", {}).get("config_prompt", r'[(]config.*[)]#\s*$')
 
         self._example_driver_setting = o.get("driver_variable", {}).get("example_driver_setting", False)
 
@@ -41,7 +47,8 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
         self._password = password
 
         self._logger.info('Connecting...')
-        # ...
+        # self._tl1_connection = {{cookiecutter.model_name}}TL1Connection(self._logger, self._host, self._port, self._username, self._password)
+        # self._cli_connection = {{cookiecutter.model_name}}CliConnection(self._logger, 'ssh', self._host, self._port, self._username, self._password)
         self._logger.info('Connected')
 
     def logout(self):
@@ -49,7 +56,9 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
         :return: None
         """
         self._logger.info('Disconnecting...')
-        # ...
+        # self._tl1_connection.disconnect()
+        # self._tl1_connection = None
+        # self._cli_connection = None
         self._logger.info('Disconnected')
 
     def get_resource_description(self, address):
@@ -66,8 +75,14 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
         PORT_FAMILY = '{{cookiecutter.family_name}} Port'
         PORT_MODEL = '{{cookiecutter.model_name}} Port'
 
-        sw = L1DriverResourceInfo('', address, SWITCH_FAMILY, SWITCH_MODEL, serial='-1')
+        # o1 = self._tl1_connection.command('RTRV-NETYPE:{name}::{counter}:;')
+        # o2 = self._tl1_connection.command('RTRV-PATCH:{name}::{counter}:;')
+        # ... parse data
+        # o1 = self._cli_connection.show_version()
+        # o2 = self._cli_connection.show_interfaces()
+        # ... parse data
 
+        sw = L1DriverResourceInfo('', address, SWITCH_FAMILY, SWITCH_MODEL, serial='-1')
 
         for module in range(3):
             blade = L1DriverResourceInfo('%s%0.2d' % (BLADE_PREFIX, module),
@@ -99,6 +114,12 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
         """
         self._logger.info('map_uni {} {}'.format(src_port, dst_port))
 
+        min_port = min(int(src_port.split('/')[-1]), int(dst_port.split('/')[-1]))
+        max_port = max(int(src_port.split('/')[-1]), int(dst_port.split('/')[-1]))
+
+        # self._tl1_connection.command("ENT-PATCH:{name}:%d,%d:{counter}:;" % (min_port, max_port))
+        # self._cli_connection.my_command1(min_port, max_port)
+
     def map_bidi(self, src_port, dst_port, mapping_group_name):
         """
         :param src_port: str
@@ -108,6 +129,12 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
         """
         self._logger.info('map_bidi {} {} group={}'.format(src_port, dst_port, mapping_group_name))
 
+        min_port = min(int(src_port.split('/')[-1]), int(dst_port.split('/')[-1]))
+        max_port = max(int(src_port.split('/')[-1]), int(dst_port.split('/')[-1]))
+
+        # self._tl1_connection.command("ENT-PATCH:{name}:%d,%d:{counter}:;" % (min_port, max_port))
+        # self._cli_connection.my_command2(min_port, max_port)
+
     def map_clear_to(self, src_port, dst_port):
         """
         :param src_port: str
@@ -116,6 +143,12 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
         """
         self._logger.info('map_clear_to {} {}'.format(src_port, dst_port))
 
+        min_port = min(int(src_port.split('/')[-1]), int(dst_port.split('/')[-1]))
+        max_port = max(int(src_port.split('/')[-1]), int(dst_port.split('/')[-1]))
+
+        # self._tl1_connection.command("DLT-PATCH:{name}:%d:{counter}:;" % (min_port))
+        # self._cli_connection.my_command3(min_port, max_port)
+
     def map_clear(self, src_port, dst_port):
         """
         :param src_port: str
@@ -123,6 +156,9 @@ class {{cookiecutter.model_name}}L1Handler(L1HandlerBase):
         :return: None
         """
         self._logger.info('map_clear {} {}'.format(src_port, dst_port))
+
+        # self._tl1_connection.command("DLT-PATCH:{name}:%d:{counter}:;" % (min_port))
+        # self._cli_connection.my_command3(min_port, max_port)
 
     def set_speed_manual(self, src_port, dst_port, speed, duplex):
         """

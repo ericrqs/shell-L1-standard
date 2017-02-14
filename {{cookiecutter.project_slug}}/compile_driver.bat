@@ -9,7 +9,7 @@ if %errorLevel% == 0 (
 
 @echo on
 
-pip install cloudshell-core
+pip install cloudshell-core cloudshell-cli cloudshell-snmp
 
 pyinstaller --onefile driver.spec
 
