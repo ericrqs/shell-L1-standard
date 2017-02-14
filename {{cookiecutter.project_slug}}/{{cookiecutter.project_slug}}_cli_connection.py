@@ -10,10 +10,12 @@
 
 from collections import OrderedDict
 
+from cloudshell.cli.cli import CLI
 from cloudshell.cli.command_mode_helper import CommandModeHelper
 from cloudshell.cli.command_template.command_template import CommandTemplate
 from cloudshell.cli.session.ssh_session import SSHSession
 from cloudshell.cli.session.telnet_session import TelnetSession
+from cloudshell.cli.session_pool_manager import SessionPoolManager
 from cloudshell.networking.cli_handler_impl import CliHandlerImpl
 
 from cloudshell.cli.command_mode import CommandMode

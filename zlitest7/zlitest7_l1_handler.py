@@ -6,7 +6,7 @@ import sys
 from l1_driver_resource_info import L1DriverResourceInfo
 from l1_handler_base import L1HandlerBase
 # from zlitest7_tl1_connection import Zlitest7TL1Connection
-# from zlitest7_cli_connection import Zlitest7CliConnection, Zlitest7DefaultCommandMode, Zlitest7EnableCommandMode, Zlitest7ConfigCommandMode
+from zlitest7_cli_connection import Zlitest7CliConnection, Zlitest7DefaultCommandMode, Zlitest7EnableCommandMode, Zlitest7ConfigCommandMode
 
 class Zlitest7L1Handler(L1HandlerBase):
     
@@ -18,7 +18,7 @@ class Zlitest7L1Handler(L1HandlerBase):
         self._password = None
 
         # self._tl1_connection = None
-        # self._cli_connection = None
+        self._cli_connection = None
 
         try:
             with open(os.path.join(os.path.dirname(sys.argv[0]), 'zlitest7_runtime_configuration.json')) as f:
@@ -28,9 +28,9 @@ class Zlitest7L1Handler(L1HandlerBase):
             o = {}
 
         self._port = o.get("common_variable", {}).get("connection_port", 22)
-        # Zlitest7DefaultCommandMode.PROMPT_REGEX = o.get("common_variable", {}).get("default_prompt", r'>\s*$')
-        # Zlitest7EnableCommandMode.PROMPT_REGEX = o.get("common_variable", {}).get("enable_prompt", r'#\s*$')
-        # Zlitest7ConfigCommandMode.PROMPT_REGEX = o.get("common_variable", {}).get("config_prompt", r'[(]config.*[)]#\s*$')
+        Zlitest7DefaultCommandMode.PROMPT_REGEX = o.get("common_variable", {}).get("default_prompt", r'>\s*$')
+        Zlitest7EnableCommandMode.PROMPT_REGEX = o.get("common_variable", {}).get("enable_prompt", r'#\s*$')
+        Zlitest7ConfigCommandMode.PROMPT_REGEX = o.get("common_variable", {}).get("config_prompt", r'[(]config.*[)]#\s*$')
 
         self._example_driver_setting = o.get("driver_variable", {}).get("example_driver_setting", False)
 
@@ -48,7 +48,7 @@ class Zlitest7L1Handler(L1HandlerBase):
 
         self._logger.info('Connecting...')
         # self._tl1_connection = Zlitest7TL1Connection(self._logger, self._host, self._port, self._username, self._password)
-        # self._cli_connection = Zlitest7CliConnection(self._logger, 'ssh', self._host, self._port, self._username, self._password)
+        self._cli_connection = Zlitest7CliConnection(self._logger, 'ssh', self._host, self._port, self._username, self._password)
         self._logger.info('Connected')
 
     def logout(self):
@@ -58,7 +58,7 @@ class Zlitest7L1Handler(L1HandlerBase):
         self._logger.info('Disconnecting...')
         # self._tl1_connection.disconnect()
         # self._tl1_connection = None
-        # self._cli_connection = None
+        self._cli_connection = None
         self._logger.info('Disconnected')
 
     def get_resource_description(self, address):
@@ -78,8 +78,10 @@ class Zlitest7L1Handler(L1HandlerBase):
         # o1 = self._tl1_connection.command('RTRV-NETYPE:{name}::{counter}:;')
         # o2 = self._tl1_connection.command('RTRV-PATCH:{name}::{counter}:;')
         # ... parse data
-        # o1 = self._cli_connection.show_version()
-        # o2 = self._cli_connection.show_interfaces()
+        o1 = self._cli_connection.show_version()
+        o2 = self._cli_connection.show_interfaces()
+        self._logger.info('show version: %s' % o1)
+        self._logger.info('show interfaces: %s' % o2)
         # ... parse data
 
         sw = L1DriverResourceInfo('', address, SWITCH_FAMILY, SWITCH_MODEL, serial='-1')
