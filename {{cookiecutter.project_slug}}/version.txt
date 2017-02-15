@@ -33,7 +33,7 @@ VSVersionInfo(
         StringStruct(u'ProductName', u'{{cookiecutter.model_name}} L1 Driver'),
         StringStruct(u'ProductVersion', u'2, 0, 3, 0'),
         StringStruct(u'InternalName', u'L1 Driver'),
-        StringStruct(u'OriginalFilename', u'{{cookiecutter.model_name}}.exe'),
+        StringStruct(u'OriginalFilename', u'{{cookiecutter.driver_name.replace(' ', '') }}.exe'),
         StringStruct(u'FileVersion', u'96, 12, 19, 1'),
         StringStruct(u'FileDescription', u'{{cookiecutter.model_name}} L1 driver'),
         StringStruct(u'LegalCopyright', u'Copyright 2016 Quali, Inc.'),

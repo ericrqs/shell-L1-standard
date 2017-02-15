@@ -2,7 +2,7 @@
 #
 # It should not be necessary to edit this file.
 #
-# - Listens on a port passed on the command line, e.g. Sample.exe 4000
+# - Listens on a port passed on the command line, e.g. {{cookiecutter.driver_name.replace(' ', '') }}.exe 4000
 # - Receives commands from CloudShell
 # - Dispatches commands to your L1 handler
 

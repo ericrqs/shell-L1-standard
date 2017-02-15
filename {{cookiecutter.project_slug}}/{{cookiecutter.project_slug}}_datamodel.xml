@@ -58,7 +58,7 @@
           <AttributeValues />
           <ParentModels />
           <Drivers>
-            <DriverName>{{cookiecutter.model_name}} Driver</DriverName>
+            <DriverName>{{cookiecutter.driver_name}}</DriverName>
           </Drivers>
         </ResourceModel>
       </Models>
@@ -67,7 +67,7 @@
       <AttachedAttributes/>
       <AttributeValues />
       <Models>
-        <ResourceModel Name="{{cookiecutter.model_name}} Blade" Description="" SupportsConcurrentCommands="false">
+        <ResourceModel Name="Blade {{cookiecutter.model_name}}" Description="" SupportsConcurrentCommands="false">
           <AttachedAttributes />
           <AttributeValues />
           <ParentModels>
@@ -81,11 +81,12 @@
       <AttachedAttributes />
       <AttributeValues />
       <Models>
-	    <ResourceModel Name="{{cookiecutter.model_name}} Port" SupportsConcurrentCommands="false">
+	    <ResourceModel Name="Port {{cookiecutter.model_name}}" SupportsConcurrentCommands="false">
           <AttachedAttributes/>
           <AttributeValues/>
           <ParentModels>
-            <ParentModelName>{{cookiecutter.model_name}} Blade</ParentModelName>
+            <ParentModelName>Blade {{cookiecutter.model_name}}</ParentModelName>
+            <ParentModelName>{{cookiecutter.model_name}}</ParentModelName>
           </ParentModels>
           <Drivers />
         </ResourceModel>
@@ -119,7 +120,7 @@
     </ResourceFamily>
 	</ResourceFamilies>
   <DriverDescriptors>
-    <DriverDescriptor Name="{{cookiecutter.model_name}} Driver" DriverType="L1SwitchTclDriver" CustomParams="{{cookiecutter.model_name}}.exe" />
+    <DriverDescriptor Name="{{cookiecutter.driver_name}}" DriverType="L1SwitchTclDriver" CustomParams="{{cookiecutter.driver_name.replace(' ', '')}}.exe" />
     <DriverDescriptor Name="Patch Panel Driver" DriverType="L1SwitchDriver" />
   </DriverDescriptors>
 </ResourceManagementExportImport>

@@ -21,43 +21,43 @@ from cloudshell.networking.cli_handler_impl import CliHandlerImpl
 from cloudshell.cli.command_mode import CommandMode
 
 
-class {{cookiecutter.model_name}}DefaultCommandMode(CommandMode):
+class {{cookiecutter.model_name.replace(' ', '') }}DefaultCommandMode(CommandMode):
     PROMPT_REGEX = r'>\s*$'
     ENTER_COMMAND = ''
     EXIT_COMMAND = 'exit'
     def __init__(self):
         CommandMode.__init__(self,
-                             {{cookiecutter.model_name}}DefaultCommandMode.PROMPT_REGEX,
-                             {{cookiecutter.model_name}}DefaultCommandMode.ENTER_COMMAND,
-                             {{cookiecutter.model_name}}DefaultCommandMode.EXIT_COMMAND)
+                             {{cookiecutter.model_name.replace(' ', '')}}DefaultCommandMode.PROMPT_REGEX,
+                             {{cookiecutter.model_name.replace(' ', '')}}DefaultCommandMode.ENTER_COMMAND,
+                             {{cookiecutter.model_name.replace(' ', '')}}DefaultCommandMode.EXIT_COMMAND)
 
 
-class {{cookiecutter.model_name}}EnableCommandMode(CommandMode):
+class {{cookiecutter.model_name.replace(' ', '')}}EnableCommandMode(CommandMode):
     PROMPT_REGEX = r'#\s*$'
     ENTER_COMMAND = ''
     EXIT_COMMAND = 'exit'
     def __init__(self):
         CommandMode.__init__(self,
-                             {{cookiecutter.model_name}}EnableCommandMode.PROMPT_REGEX,
-                             {{cookiecutter.model_name}}EnableCommandMode.ENTER_COMMAND,
-                             {{cookiecutter.model_name}}EnableCommandMode.EXIT_COMMAND)
+                             {{cookiecutter.model_name.replace(' ', '')}}EnableCommandMode.PROMPT_REGEX,
+                             {{cookiecutter.model_name.replace(' ', '')}}EnableCommandMode.ENTER_COMMAND,
+                             {{cookiecutter.model_name.replace(' ', '')}}EnableCommandMode.EXIT_COMMAND)
 
 
-class {{cookiecutter.model_name}}ConfigCommandMode(CommandMode):
+class {{cookiecutter.model_name.replace(' ', '')}}ConfigCommandMode(CommandMode):
     PROMPT_REGEX = r'[(]config.*[)]#\s*$'
     ENTER_COMMAND = ''
     EXIT_COMMAND = 'exit'
     def __init__(self):
         CommandMode.__init__(self,
-                             {{cookiecutter.model_name}}ConfigCommandMode.PROMPT_REGEX,
-                             {{cookiecutter.model_name}}ConfigCommandMode.ENTER_COMMAND,
-                             {{cookiecutter.model_name}}ConfigCommandMode.EXIT_COMMAND)
+                             {{cookiecutter.model_name.replace(' ', '')}}ConfigCommandMode.PROMPT_REGEX,
+                             {{cookiecutter.model_name.replace(' ', '')}}ConfigCommandMode.ENTER_COMMAND,
+                             {{cookiecutter.model_name.replace(' ', '')}}ConfigCommandMode.EXIT_COMMAND)
 
 
 CommandMode.RELATIONS_DICT = {
-    {{cookiecutter.model_name}}DefaultCommandMode: {
-        {{cookiecutter.model_name}}EnableCommandMode: {
-            {{cookiecutter.model_name}}ConfigCommandMode: {
+    {{cookiecutter.model_name.replace(' ', '')}}DefaultCommandMode: {
+        {{cookiecutter.model_name.replace(' ', '')}}EnableCommandMode: {
+            {{cookiecutter.model_name.replace(' ', '')}}ConfigCommandMode: {
             }
         }
     }
@@ -90,10 +90,10 @@ MY_COMMAND3 = CommandTemplate('my_command3 {arg1} {arg2}', action_map=OrderedDic
 ]))
 
 
-class _{{cookiecutter.model_name}}CliHandler(CliHandlerImpl):
+class _{{cookiecutter.model_name.replace(' ', '')}}CliHandler(CliHandlerImpl):
 
     def __init__(self, cli, logger, cli_type, host, port, username, password):
-        super(_{{cookiecutter.model_name}}CliHandler, self).__init__(cli, None, logger, None)
+        super(_{{cookiecutter.model_name.replace(' ', '')}}CliHandler, self).__init__(cli, None, logger, None)
         self._cli_type = cli_type
         self._host = host
         self._port = port
@@ -101,9 +101,9 @@ class _{{cookiecutter.model_name}}CliHandler(CliHandlerImpl):
         self._password = password
 
         modes = CommandModeHelper.create_command_mode()
-        self.default_mode = modes[{{cookiecutter.model_name}}DefaultCommandMode]
-        self.enable_mode = modes[{{cookiecutter.model_name}}EnableCommandMode]
-        self.config_mode = modes[{{cookiecutter.model_name}}ConfigCommandMode]
+        self.default_mode = modes[{{cookiecutter.model_name.replace(' ', '')}}DefaultCommandMode]
+        self.enable_mode = modes[{{cookiecutter.model_name.replace(' ', '')}}EnableCommandMode]
+        self.config_mode = modes[{{cookiecutter.model_name.replace(' ', '')}}ConfigCommandMode]
 
     @property
     def resource_address(self):
@@ -126,7 +126,7 @@ class _{{cookiecutter.model_name}}CliHandler(CliHandlerImpl):
         return self._port
 
     def on_session_start(self, session, logger):
-        super(_{{cookiecutter.model_name}}CliHandler, self).on_session_start(session, logger)
+        super(_{{cookiecutter.model_name.replace(' ', '')}}CliHandler, self).on_session_start(session, logger)
 
     def _ssh_session(self):
         return SSHSession(self.resource_address, self.username, self.password, self.port, self.on_session_start,
@@ -136,7 +136,7 @@ class _{{cookiecutter.model_name}}CliHandler(CliHandlerImpl):
         return TelnetSession(self.resource_address, self.username, self.password, self.port, self.on_session_start,
                              loop_detector_max_action_loops=10000)
 
-class {{cookiecutter.model_name}}CliConnection:
+class {{cookiecutter.model_name.replace(' ', '')}}CliConnection:
     def __init__(self, logger, cli_type, host, port, username, password, session_pool_size=1):
         """
         :param logger: qs_logger
@@ -150,7 +150,7 @@ class {{cookiecutter.model_name}}CliConnection:
         self._logger = logger
         session_pool = SessionPoolManager(max_pool_size=session_pool_size, pool_timeout=100)
         self._cli = CLI(session_pool=session_pool)
-        self._cli_handler = _{{cookiecutter.model_name}}CliHandler(self._cli, logger, cli_type, host, port, username, password)
+        self._cli_handler = _{{cookiecutter.model_name.replace(' ', '')}}CliHandler(self._cli, logger, cli_type, host, port, username, password)
 
     def get_default_session(self):
         return self._cli_handler.get_cli_service(self._cli_handler.default_mode)

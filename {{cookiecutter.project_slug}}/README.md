@@ -1,8 +1,8 @@
-# cloudshell-L1-{{cookiecutter.model_name}}
+# cloudshell-L1-{{cookiecutter.model_name.replace(' ', '')}}
 
 ## Installation
 Copy to c:\Program Files (x86)\QualiSystems\CloudShell\Server\Drivers on CloudShell machine:
-- {{cookiecutter.model_name}}.exe (If the EXE was downloaded directly from the web, be sure to right click the EXE, open Properties, and *UNBLOCK* the file)
+- {{cookiecutter.driver_name.replace(' ', '') }}.exe (If the EXE was downloaded directly from the web, be sure to right click the EXE, open Properties, and *UNBLOCK* the file)
 - {{cookiecutter.project_slug}}_runtime_configuration.json
 
 To customize the port, prompt, and other driver-specific settings, edit:
@@ -19,7 +19,7 @@ Import {{cookiecutter.project_slug}}_datamodel.xml into Resource Manager
 - Create an empty reservation and add DUTs
 - Create a route between two DUTs
 - Connect the route
-- See log files in c:\Program Files (x86)\QualiSystems\CloudShell\Server\Logs\\{{cookiecutter.model_name}}_*\
+- See log files in c:\Program Files (x86)\QualiSystems\CloudShell\Server\Logs\\{{cookiecutter.model_name.replace(' ', '')}}_*\
 
 
 ## Development
@@ -34,7 +34,7 @@ Import {{cookiecutter.project_slug}}_datamodel.xml into Resource Manager
   - https://git-scm.com/
   - Enable Git Bash if asked
 - In Git Bash:
-  - git clone https://github.com/QualiSystems/cloudshell-L1-{{cookiecutter.model_name}}.git
+  - git clone https://github.com/QualiSystems/cloudshell-L1-{{cookiecutter.model_name.replace(' ', '')}}.git
 
 
 ### What to edit
@@ -53,12 +53,12 @@ Import {{cookiecutter.project_slug}}_datamodel.xml into Resource Manager
 
 ### compile_driver.bat
 - Run from a cmd command prompt &mdash; *NOTE: MUST BE RUNNING AS ADMINISTRATOR*
-- Kills all {{cookiecutter.model_name}}.exe 
+- Kills all {{cookiecutter.driver_name.replace(' ', '') }}.exe
 - Copies files to c:\Program Files (x86)\QualiSystems\CloudShell\Server\Drivers:
-  - .\dist\\{{cookiecutter.model_name}}.exe
+  - .\dist\\{{cookiecutter.driver_name.replace(' ', '') }}.exe
   - .\\{{cookiecutter.project_slug}}_runtime_configuration.json
 - Copies files to release/ folder:
-  - .\dist\\{{cookiecutter.model_name}}.exe
+  - .\dist\\{{cookiecutter.driver_name.replace(' ', '') }}.exe
   - .\\{{cookiecutter.project_slug}}_runtime_configuration.json
   - .\\{{cookiecutter.project_slug}}_datamodel.xml
 

@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e52d047-5f65-49b6-b379-eff58c907cf3" name="Default" comment="" />
+    <list default="true" id="3e52d047-5f65-49b6-b379-eff58c907cf3" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cookiecutter.json" afterPath="$PROJECT_DIR$/cookiecutter.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/README.md" afterPath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/compile_driver.bat" afterPath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/compile_driver.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/driver.spec" afterPath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/driver.spec" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/l1_driver.py" afterPath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/l1_driver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/main.py" afterPath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/version.txt" afterPath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/version.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_cli_connection.py" afterPath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_cli_connection.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_datamodel.xml" afterPath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_datamodel.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_l1_handler.py" afterPath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_l1_handler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_tl1_connection.py" afterPath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_tl1_connection.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,57 +28,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="{{cookiecutter.project_slug}}_cli_connection.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_cli_connection.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding>
-                <element signature="e#337#372#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="zlitest8_cli_connection.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zlitest8/zlitest8_cli_connection.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#337#372#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="zlitest8_l1_handler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zlitest8/zlitest8_l1_handler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="zlitest9_l1_handler.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/zlitest9/zlitest9_l1_handler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="80" column="34" lean-forward="false" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="{{cookiecutter.project_slug}}_l1_handler.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_l1_handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2297">
-              <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+            <state relative-caret-position="672">
+              <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -73,11 +40,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zlitest7_cli_connection.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zlitest7/zlitest7_cli_connection.py">
+      <file leaf-file-name="arista_l1_runtime_configuration.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/arista_l1/arista_l1_runtime_configuration.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-357">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="arista_l1_cli_connection.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/arista_l1/arista_l1_cli_connection.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="45" column="13" lean-forward="false" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
               <folding>
                 <element signature="e#337#372#0" expanded="true" />
               </folding>
@@ -85,21 +62,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zlitest7_tl1_connection.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zlitest7/zlitest7_tl1_connection.py">
+      <file leaf-file-name="{{cookiecutter.project_slug}}_cli_connection.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_cli_connection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="672">
+              <caret line="172" column="48" lean-forward="false" selection-start-line="172" selection-start-column="48" selection-end-line="172" selection-end-column="48" />
+              <folding>
+                <element signature="e#337#372#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zlitest7_l1_handler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zlitest7/zlitest7_l1_handler.py">
+      <file leaf-file-name="arista_l1_l1_handler.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/arista_l1/arista_l1_l1_handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="544">
+              <caret line="73" column="25" lean-forward="true" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -107,24 +86,54 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="{{cookiecutter.project_slug}}_runtime_configuration.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_runtime_configuration.json">
+      <file leaf-file-name="polatis_layer_one_l1_handler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/polatis_layer_one/polatis_layer_one_l1_handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+            <state relative-caret-position="2941">
+              <caret line="173" column="73" lean-forward="false" selection-start-line="173" selection-start-column="73" selection-end-line="173" selection-end-column="73" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="compile_driver.bat" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/polatis_layer_one/compile_driver.bat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="{{cookiecutter.project_slug}}_tl1_connection.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_tl1_connection.py">
+      <file leaf-file-name="compile_driver.bat" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/compile_driver.bat">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="32" lean-forward="false" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-              <folding>
-                <element signature="e#754#763#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="527">
+              <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="polatis_layer_one_datamodel.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/polatis_layer_one/polatis_layer_one_datamodel.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-353">
+              <caret line="60" column="39" lean-forward="false" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="driver.spec" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/polatis_layer_one/driver.spec">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -137,12 +146,20 @@
       <find>l1</find>
       <find>cookiecutter_project</find>
       <find>driver_helper</find>
+      <find>polatis port</find>
+      <find>polatis driver</find>
+      <find>.exe</find>
+      <find>model_name</find>
+      <find>driver_name</find>
+      <find>project_slug</find>
     </findStrings>
     <replaceStrings>
       <replace>{{cookiecutter.model_name}}</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\git\cleanl1\shell-L1-standard\zlitest4</dir>
+      <dir>C:\git\cleanl1\shell-L1-standard\polatis</dir>
+      <dir>C:\git\cleanl1\shell-L1-standard\{{cookiecutter.project_slug}}</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -153,32 +170,45 @@
       <list>
         <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}tl1_connection.py" />
         <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_runtime_configuration.json" />
-        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_tl1_connection.py" />
         <option value="$PROJECT_DIR$/zlitest3/zlitest3_l1_handler.py" />
         <option value="$PROJECT_DIR$/zlitest3/zlitest3_cli_connection.py" />
-        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_l1_handler.py" />
         <option value="$PROJECT_DIR$/zlitest4/zlitest4_l1_handler.py" />
-        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/compile_driver.bat" />
         <option value="$PROJECT_DIR$/zlitest4/compile_driver.bat" />
         <option value="$PROJECT_DIR$/zlitest4/driver.spec" />
-        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/driver.spec" />
         <option value="$PROJECT_DIR$/zlitest4/zlitest4_cli_connection.py" />
         <option value="$PROJECT_DIR$/zlitest5/zlitest5_cli_connection.py" />
         <option value="$PROJECT_DIR$/zlitest6/zlitest6_l1_handler.py" />
         <option value="$PROJECT_DIR$/zlitest6/driver.spec" />
         <option value="$PROJECT_DIR$/zlitest7/zlitest7_l1_handler.py" />
         <option value="$PROJECT_DIR$/zlitest7/zlitest7_cli_connection.py" />
-        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_cli_connection.py" />
         <option value="$PROJECT_DIR$/zlitest8/zlitest8_l1_handler.py" />
         <option value="$PROJECT_DIR$/zlitest9/zlitest9_l1_handler.py" />
+        <option value="$PROJECT_DIR$/polatis/polatis_datamodel.xml" />
+        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/driver.spec" />
+        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/version.txt" />
+        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/l1_driver.py" />
+        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_tl1_connection.py" />
+        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/main.py" />
+        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/README.md" />
+        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_datamodel.xml" />
+        <option value="$PROJECT_DIR$/polatis/polatis_l1_handler.py" />
+        <option value="$PROJECT_DIR$/polatis/polatis_runtime_configuration.json" />
+        <option value="$PROJECT_DIR$/cookiecutter.json" />
+        <option value="$PROJECT_DIR$/polatis_layer_one/polatis_layer_one_l1_handler.py" />
+        <option value="$PROJECT_DIR$/polatis_layer_one/compile_driver.bat" />
+        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/compile_driver.bat" />
+        <option value="$PROJECT_DIR$/polatis_layer_one/polatis_layer_one_datamodel.xml" />
+        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_l1_handler.py" />
+        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_cli_connection.py" />
+        <option value="$PROJECT_DIR$/arista_l1/arista_l1_cli_connection.py" />
+        <option value="$PROJECT_DIR$/arista_l1/arista_l1_l1_handler.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1689" />
-    <option name="y" value="8" />
-    <option name="width" value="1500" />
-    <option name="height" value="1027" />
+    <option name="x" value="87" />
+    <option name="width" value="1488" />
+    <option name="height" value="867" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -232,7 +262,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="zlitest9" />
+              <option name="myItemId" value="polatis_layer_one" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shell-L1-standard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shell-L1-standard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="arista_l1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -399,10 +443,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1689" y="8" width="1500" height="1027" extended-state="0" />
+    <frame x="87" y="0" width="1488" height="867" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23119015" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23310345" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -430,96 +474,12 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/clitest2/clitest2_runtime_configuration.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_datamodel.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zlitest3/zlitest3_l1_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zlitest3/zlitest3_cli_connection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-952">
-          <caret line="26" column="56" lean-forward="false" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zlitest4/version.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zlitest4/zlitest4_tl1_connection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zlitest4/zlitest4_runtime_configuration.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zlitest4/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zlitest4/zlitest4_l1_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="44" lean-forward="false" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/compile_driver.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/cloudshell/networking/devices/driver_helper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="e#43#59#0" expanded="true" />
+            <element signature="e#43#59#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -537,7 +497,7 @@
         <state relative-caret-position="-783">
           <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
           <folding>
-            <element signature="e#0#53#0" expanded="true" />
+            <element signature="e#0#53#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -555,7 +515,7 @@
         <state relative-caret-position="288">
           <caret line="71" column="22" lean-forward="true" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
           <folding>
-            <element signature="e#42#76#0" expanded="true" />
+            <element signature="e#42#76#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -589,7 +549,7 @@
         <state relative-caret-position="202">
           <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -622,16 +582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="711">
           <caret line="151" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
-          <folding>
-            <element signature="e#248#283#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/driver.spec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="40" lean-forward="false" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -648,37 +598,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="83" column="42" lean-forward="false" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_runtime_configuration.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_tl1_connection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="32" lean-forward="false" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-          <folding>
-            <element signature="e#754#763#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_l1_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2297">
-          <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -694,9 +614,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -704,19 +622,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-357">
           <caret line="21" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="e#337#372#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_cli_connection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="e#337#372#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -724,9 +630,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-102">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#337#372#0" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zlitest9/zlitest9_l1_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="80" column="34" lean-forward="false" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -738,10 +650,254 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zlitest9/zlitest9_l1_handler.py">
+    <entry file="file://$PROJECT_DIR$/polatis/driver.spec">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="80" column="34" lean-forward="false" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="34" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polatis/l1_driver_resource_info.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polatis/l1_handler_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_runtime_configuration.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polatis/l1_driver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polatis/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polatis/polatis_cli_connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polatis/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polatis/polatis_datamodel.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="622">
+          <caret line="120" column="23" lean-forward="true" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/driver.spec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="35" column="31" lean-forward="false" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="60" column="27" lean-forward="false" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/version.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/l1_driver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="70" lean-forward="false" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="53" lean-forward="false" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          <folding>
+            <element signature="e#279#337#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_datamodel.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="122" column="146" lean-forward="false" selection-start-line="122" selection-start-column="146" selection-end-line="122" selection-end-column="146" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polatis/polatis_runtime_configuration.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_tl1_connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="31" lean-forward="false" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+          <folding>
+            <element signature="e#754#763#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cookiecutter.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="15" lean-forward="false" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polatis/polatis_l1_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polatis_layer_one/polatis_layer_one_l1_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2941">
+          <caret line="173" column="73" lean-forward="false" selection-start-line="173" selection-start-column="73" selection-end-line="173" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/compile_driver.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polatis_layer_one/compile_driver.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polatis_layer_one/driver.spec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polatis_layer_one/polatis_layer_one_datamodel.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-353">
+          <caret line="60" column="39" lean-forward="false" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_l1_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/arista_l1/arista_l1_tl1_connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/arista_l1/arista_l1_runtime_configuration.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_cli_connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="172" column="48" lean-forward="false" selection-start-line="172" selection-start-column="48" selection-end-line="172" selection-end-column="48" />
+          <folding>
+            <element signature="e#337#372#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/arista_l1/arista_l1_cli_connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="45" column="13" lean-forward="false" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+          <folding>
+            <element signature="e#337#372#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/arista_l1/arista_l1_l1_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="73" column="25" lean-forward="true" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

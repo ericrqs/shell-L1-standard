@@ -13,7 +13,7 @@ pip install cloudshell-core cloudshell-cli cloudshell-snmp
 
 pyinstaller --onefile driver.spec
 
-taskkill /f /im {{cookiecutter.model_name}}.exe
+taskkill /f /im {{cookiecutter.driver_name.replace(' ', '') }}.exe
 
 timeout 3
 
@@ -23,13 +23,13 @@ set driverdir="c:\Program Files (x86)\QualiSystems\TestShell\Server\Drivers"
 :havecs
 
 
-copy dist\{{cookiecutter.model_name}}.exe                     %driverdir%
+copy dist\{{cookiecutter.driver_name.replace(' ', '') }}.exe  %driverdir%
 copy {{cookiecutter.project_slug}}_runtime_configuration.json %driverdir%
 
 
 
 copy {{cookiecutter.project_slug}}_datamodel.xml               release\
-copy dist\{{cookiecutter.model_name}}.exe                      release\
+copy dist\{{cookiecutter.driver_name.replace(' ', '') }}.exe        release\
 copy {{cookiecutter.project_slug}}_runtime_configuration.json  release\
 
 :fail

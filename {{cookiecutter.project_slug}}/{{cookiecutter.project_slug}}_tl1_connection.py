@@ -21,7 +21,7 @@ import re
 import socket
 
 
-class {{cookiecutter.model_name}}TL1Connection:
+class {{cookiecutter.model_name.replace(' ', '')}}TL1Connection:
     def __init__(self, logger, address, port, username, password, connect_immediately=True):
         """
         Connects to the device
