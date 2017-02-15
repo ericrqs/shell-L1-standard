@@ -21,6 +21,10 @@ Import {{cookiecutter.project_slug}}_datamodel.xml into Resource Manager
 - Connect the route
 - See log files in c:\Program Files (x86)\QualiSystems\CloudShell\Server\Logs\\{{cookiecutter.model_name.replace(' ', '')}}_*\
 
+Check for error messages in:
+- c:\\Program Files (x86)\\QualiSystems\\CloudShell\\Server\\Logs\\{{cookiecutter.model_name.replace(' ', '')}}
+- c:\\Program Files (x86)\\QualiSystems\\CloudShell\\Server\\Logs\\TeamServer.Service.txt.
+
 
 ## Development
 
@@ -80,9 +84,9 @@ If the device uses a CLI, try to customize {{cookiecutter.project_slug}}_cli_con
 
 For REST APIs, try the "requests" package. Note that even if your device has no notion of a persistent connection, you still need to implement login() and store the address, username, and password, since they are passed to login() and not the mapping functions.
 
-Any additional dependencies you add must be installed on the Python in PATH and added to driver.spec alongside "../cloudshell-cli". PyInstaller will automatically bundle all these dependencies into the EXE.
+Any additional dependencies you add must be installed on the Python in PATH. PyInstaller will automatically bundle all these dependencies into the EXE.
 
-If the driver doesn't work, try running the EXE directly from the command line. Problems with dependencies will be apparent there. 
+If the driver doesn't work, try running the EXE from the command line with no arguments. It should print "Dependency check OK - exiting". Problems with dependencies may print a stack trace.
 
 The address, username, and password of the switch resource become known to the driver only when 'login' is called. 
 

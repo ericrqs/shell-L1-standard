@@ -13,14 +13,18 @@
 - In Git Bash:
     - git clone https://github.com/ericrqs/shell-L1-standard.git
     - cd shell-L1-standard
-
-- In Git Bash:
     - cookiecutter .
-    - Replace "Sample" with your driver name
+    - Replace "Sample" with your resource model name (spaces ok)
     - Push Enter many times to accept other defaults
-    
-- Customize YourDriverName\\YourDriverName_l1_handler.py
+
+- If you entered "Your Model Name", a folder "your_model_name" will be created containing the generated files
+
+- Customize the code according to your_model_name\\README.md:
+    - your_model_name_l1_handler.py
+    - your_model_name_runtime_configuration.json
+    - your_model_name_tl1_connection.py or your_model_name_cli_connection.py if using TL1 or Telnet/SSH
 
 - In CMD:
-    - cd YourDriverName
     - compile_driver.bat
+
+- Add the contents of your_model_name at the root of a new GitHub project
