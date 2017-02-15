@@ -5,7 +5,7 @@ Copy to c:\Program Files (x86)\QualiSystems\CloudShell\Server\Drivers on CloudSh
 - {{cookiecutter.driver_name.replace(' ', '') }}.exe (If the EXE was downloaded directly from the web, be sure to right click the EXE, open Properties, and *UNBLOCK* the file)
 - {{cookiecutter.project_slug}}_runtime_configuration.json
 
-To customize the port, prompt, and other driver-specific settings, edit:
+To customize the port, prompts, and other driver-specific settings, edit:
 - {{cookiecutter.project_slug}}_runtime_configuration.json
 
 Import {{cookiecutter.project_slug}}_datamodel.xml into Resource Manager
@@ -62,68 +62,36 @@ Import {{cookiecutter.project_slug}}_datamodel.xml into Resource Manager
   - .\\{{cookiecutter.project_slug}}_runtime_configuration.json
   - .\\{{cookiecutter.project_slug}}_datamodel.xml
 
-## Notes
+### Notes
 
-The only .py you should need to edit is {{cookiecutter.project_slug}}_l1_handler.py.
+You should not need to edit main.py, l1_driver.py, l1_driver_resource_info.py, or l1_handler_base.py.
+
+Edit the driver logic in {{cookiecutter.project_slug}}_l1_handler.py.
+
+{{cookiecutter.project_slug}}_l1_handler.py manages the lifetime of the device connection.
+
+Implementations are provided for typical TL1 and SSH/Telnet ("CLI", via cloudshell-cli package).
+
+Sample code for TL1 and CLI are ready to uncomment in {{cookiecutter.project_slug}}_l1_handler.py.
+
+If the device uses TL1, customize {{cookiecutter.project_slug}}_tl1_connection.py if the device differs from the expected defaults.
+
+If the device uses a CLI, try to customize {{cookiecutter.project_slug}}_cli_connection.py based on the sample commands and modes. The modes (default, enable, configure) are based on a typical Cisco switch. The sample "show interfaces" is set up to automatically answer a typical --More-- prompt. The cloudshell-cli package has many areas for customization. Alternatively you can bypass cloudshell-cli and {{cookiecutter.project_slug}}_cli_connection.py entirely and connect directly to the device using Paramiko.
+
+For REST APIs, try the "requests" package. Note that even if your device has no notion of a persistent connection, you still need to implement login() and store the address, username, and password, since they are passed to login() and not the mapping functions.
+
+Any additional dependencies you add must be installed on the Python in PATH and added to driver.spec alongside "../cloudshell-cli". PyInstaller will automatically bundle all these dependencies into the EXE.
+
+If the driver doesn't work, try running the EXE directly from the command line. Problems with dependencies will be apparent there. 
 
 The address, username, and password of the switch resource become known to the driver only when 'login' is called. 
 
 The port number is not stored on the resource. If it can't just be hard coded in the driver, take the setting from c:\Program Files (x86)\QualiSystems\CloudShell\Server\Drivers\\{{cookiecutter.project_slug}}_runtime_configuration.json.
 
 ### JSON config
-The sample code includes hard-coding of default values for the JSON settings.
+The sample code includes hard-coding of default values for the JSON settings. In the sample, it is reread every time login() is called.
 
 CLI prompts on some switches can be completely arbitrary. A JSON setting is included for customizing the prompt regex. This is to avoid having to recompile the driver in the event that the customer switch has been given a bizarre prompt. If you don't have such prompt issues, you can delete all code related to this setting.
 
 {{cookiecutter.project_slug}}_runtime_configuration.json is not mandatory. If your driver doesn't need any runtime settings, you can delete all the code in {{cookiecutter.project_slug}}_l1_handler.py that deals with the JSON.
-
-### Driver implementation tips
-
-Even if your driver makes REST calls and doesn't maintain a persistent connection, you still need to implement 'login' to store the address, username, and password for later use by the mapping functions.   
-
-#### SSH
-
-For an SSH device, it is convenient to use Paramiko.
-
-    import paramiko
-    # ...
-        def receive(self):
-            # read until the prompt regex is found
-            prompt_regex = '>'
-            rv = ''
-            while True:
-                self.channel.settimeout(30)
-                r = self.channel.recv(2048)
-                if r:
-                    rv += r
-                t = re.sub(r'\x1b\[\d+m', '', rv)
-                if not r or len(re.findall(prompt_regex, t)) > 0:
-                    return t
-
-        def do_command(self, command):
-            self.channel.send(command + '\n')
-            return self.receive()
-            
-        def login(self, address, username, password)
-            self.ssh = paramiko.SSHClient()
-            # must store the SSHClient in a non-local variable to avoid garbage collection
-            self.ssh.load_system_host_keys()
-            self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            self.ssh.connect(address,
-                        port=22,
-                        username=username,
-                        password=password,
-                        look_for_keys=True)
-            self.channel = self.ssh.invoke_shell()
-            self.receive() # eat banner
-         
-
-Communication with your device may have unique timing requirements. 
-
-You might have to handle SSH connections closed by the remote host. It never hurts to disconnect and reconnect.
-
-To log in with an RSA key file (id_rsa), pass look_for_keys=True to the SSH connect() as shown above. Paramiko will search for ~/.ssh/id_rsa. The driver runs in the system account, so the key file should be at C:\Windows\System32\Config\systemprofile\\.ssh\id_rsa. Continue to specify the username and password on the resource. The password will be used to decrypt the id_rsa file, and along with the username this key will be used to log in. This feature has never been tested with a blank password, so create the id_rsa with a password to be safe.    
-
-If you connect to a color terminal, the returned data may be polluted with control sequences in the form ESC[123m (regex: r'\x1b\\[\d+m'). This could interfere with your detection of the prompt regex. Buffer all the received data and look for the prompt regex in a separate copy of the data with the control sequences deleted.
-
 

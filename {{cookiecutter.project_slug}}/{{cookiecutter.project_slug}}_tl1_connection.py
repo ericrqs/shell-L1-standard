@@ -8,7 +8,7 @@
 # Raises an exception if a TL1 command does not return "COMPLD" status
 #
 # When you get the IP and credentials:
-#     tl1 = TL1Connection('123.123.123.234', 22, 'admin', 'password', logger)
+#     tl1 = TL1Connection(logger, '123.123.123.234', 22, 'admin', 'password')
 #
 # Execute an arbitrary TL1 command:
 #     result = tl1.command('MY-COMMAND:{name}:my args here:{counter}:;')
