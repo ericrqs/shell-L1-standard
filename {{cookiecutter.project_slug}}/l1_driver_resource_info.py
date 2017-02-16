@@ -38,7 +38,7 @@ class L1DriverResourceInfo:
         """
         :param name: str
         :param value: str
-        :param typename: str
+        :param typename: str: String, Lookup,
         :return: None
         """
         self.attrname2typevaluetuple[name] = (typename, value)

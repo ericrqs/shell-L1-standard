@@ -6,6 +6,20 @@
     "config_prompt": "[(]config.*[)]#\\s*$"
   },
   "driver_variable": {
-    "example_driver_setting": "xyz"
+    "resource_name": [
+      "Unused",
+      "Blade {address}",
+      "Port {address}"
+    ],
+    "resource_family_name": [
+      "{{cookiecutter.family_name}}",
+      "{{cookiecutter.family_name}} Blade",
+      "{{cookiecutter.family_name}} Port"
+    ],
+    "resource_model_name": [
+      "{{cookiecutter.model_name}}",
+      "Blade {{cookiecutter.model_name}}",
+      "Port {{cookiecutter.model_name}}"
+    ]
   }
 }

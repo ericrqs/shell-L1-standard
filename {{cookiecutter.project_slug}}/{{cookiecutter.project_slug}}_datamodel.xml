@@ -25,6 +25,48 @@
         <TagName Name="Configuration" />
       </Tags>
     </AttributeInfo>
+    <AttributeInfo Name="Vendor" Type="String" DefaultValue="" IsReadOnly="false" IsCommand="false">
+      <Tags>
+        <TagName Name="Setting" />
+      </Tags>
+    </AttributeInfo>
+    <AttributeInfo Name="Hardware Type" Type="String" DefaultValue="" IsReadOnly="false" IsCommand="false">
+      <Tags>
+        <TagName Name="Setting" />
+      </Tags>
+    </AttributeInfo>
+    <AttributeInfo Name="Model" Type="String" DefaultValue="" IsReadOnly="false" IsCommand="false">
+      <Tags>
+        <TagName Name="Setting" />
+      </Tags>
+    </AttributeInfo>
+    <AttributeInfo Name="Version" Type="String" DefaultValue="" IsReadOnly="false" IsCommand="false">
+      <Tags>
+        <TagName Name="Setting" />
+      </Tags>
+    </AttributeInfo>
+    <AttributeInfo Name="Port Description" Type="String" DefaultValue="" IsReadOnly="false" IsCommand="false">
+      <Tags>
+        <TagName Name="Setting" />
+      </Tags>
+    </AttributeInfo>
+    <AttributeInfo xsi:type="LookupAttributeDetails" Name="State" Type="Lookup" DefaultValue="0" IsReadOnly="true" IsCommand="false">
+      <Tags>
+        <TagName Name="Setting" />
+      </Tags>
+      <LookupValues>
+        <LookupValue NumericValue="0" StringValue="Enable"/>
+        <LookupValue NumericValue="1" StringValue="Disable"/>
+      </LookupValues>
+    </AttributeInfo>
+    <AttributeInfo xsi:type="LookupAttributeDetails" Name="Protocol Type" Type="Lookup" DefaultValue="0" IsReadOnly="true" IsCommand="false">
+      <Tags>
+        <TagName Name="Setting" />
+      </Tags>
+      <LookupValues>
+        <LookupValue NumericValue="0" StringValue="Transparent"/>
+      </LookupValues>
+    </AttributeInfo>
   </Attributes>
   <Modules>
     <Module Name="Measurement">
@@ -48,6 +90,18 @@
           <AllowedValues />
         </AttachedAttribute>
         <AttachedAttribute Name="Password" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="Vendor" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="Hardware Type" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="Version" IsOverridable="true" IsLocal="true">
           <AllowedValues />
         </AttachedAttribute>
       </AttachedAttributes>
@@ -82,7 +136,17 @@
       <AttributeValues />
       <Models>
 	    <ResourceModel Name="Port {{cookiecutter.model_name}}" SupportsConcurrentCommands="false">
-          <AttachedAttributes/>
+          <AttachedAttributes>
+            <AttachedAttribute Name="State" IsOverridable="true" IsLocal="true">
+              <AllowedValues />
+            </AttachedAttribute>
+            <AttachedAttribute Name="Protocol Type" IsOverridable="true" IsLocal="true">
+              <AllowedValues />
+            </AttachedAttribute>
+            <AttachedAttribute Name="Port Description" IsOverridable="true" IsLocal="true">
+              <AllowedValues />
+            </AttachedAttribute>
+          </AttachedAttributes>
           <AttributeValues/>
           <ParentModels>
             <ParentModelName>Blade {{cookiecutter.model_name}}</ParentModelName>
