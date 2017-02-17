@@ -52,13 +52,14 @@ class {{cookiecutter.model_name.replace(' ', '')}}L1Handler(L1HandlerBase):
         {{cookiecutter.model_name.replace(' ', '')}}EnableCommandMode.PROMPT_REGEX = o.get("common_variable", {}).get("enable_prompt", r'#\s*$')
         {{cookiecutter.model_name.replace(' ', '')}}ConfigCommandMode.PROMPT_REGEX = o.get("common_variable", {}).get("config_prompt", r'[(]config.*[)]#\s*$')
 
-        self._switch_family, self._blade_family, self._port_family = o.get("driver_variable", {}).get("resource_family_name",
+        self._switch_family, self._blade_family, self._port_family = o.get("common_variable", {}).get("resource_family_name",
             ['{{cookiecutter.family_name}}', '{{cookiecutter.family_name}} Blade', '{{cookiecutter.family_name}} Port'])
-        self._switch_model, self._blade_model, self._port_model = o.get("driver_variable", {}).get("resource_model_name",
+        self._switch_model, self._blade_model, self._port_model = o.get("common_variable", {}).get("resource_model_name",
             ['{{cookiecutter.model_name}}', 'Blade {{cookiecutter.model_name}}', 'Port {{cookiecutter.model_name}}'])
-        _, self._blade_name_template, self._port_name_template = o.get("driver_variable", {}).get("resource_name",
+        _, self._blade_name_template, self._port_name_template = o.get("common_variable", {}).get("resource_name",
             ['Unused', 'Blade {address}', 'Port {address}'])
 
+        self._logger.info('Connecting to %s on port %d with username %s' % (self._host, self._port, self._username))
 
         self._example_driver_setting = o.get("driver_variable", {}).get("example_driver_setting", False)
 
@@ -72,7 +73,7 @@ class {{cookiecutter.model_name.replace(' ', '')}}L1Handler(L1HandlerBase):
         :return: None
         """
         self._logger.info('Disconnecting...')
-        self._cli_connection = None
+        self._connection = None
         self._logger.info('Disconnected')
 
     def get_resource_description(self, address):

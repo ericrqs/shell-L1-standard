@@ -1,11 +1,9 @@
 {
   "common_variable": {
-    "connection_port": 22,
+    "connection_port": 3082,
     "default_prompt": ">\\s*$",
     "enable_prompt": "#\\s*$",
-    "config_prompt": "[(]config.*[)]#\\s*$"
-  },
-  "driver_variable": {
+    "config_prompt": "[(]config.*[)]#\\s*$",
     "resource_name": [
       "Unused",
       "Blade {address}",
@@ -21,5 +19,8 @@
       "Blade {{cookiecutter.model_name}}",
       "Port {{cookiecutter.model_name}}"
     ]
+  },
+  "driver_variable": {
+
   }
 }
