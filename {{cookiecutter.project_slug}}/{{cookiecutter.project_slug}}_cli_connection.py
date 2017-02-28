@@ -74,6 +74,7 @@ CommandMode.RELATIONS_DICT = {
 }
 
 TL1_COMMAND = CommandTemplate('{command}')
+SCPI_COMMAND = CommandTemplate('{command}')
 
 SHOW_VERSION = CommandTemplate('show version', action_map=OrderedDict([
     (r'--More--', lambda session, logger: session._send(' ', logger))
@@ -172,6 +173,66 @@ class TL1Session(TCPSession):
         return rv
 
 
+class SCPISession(TCPSession):
+    SESSION_TYPE = 'SCPI'
+    BUFFER_SIZE = 1024
+
+    def __init__(self, host, port, on_session_start=None, *args, **kwargs):
+        super(SCPISession, self).__init__(host, port, on_session_start=on_session_start, *args, **kwargs)
+        self.dummy_buffer = ''
+
+    def __eq__(self, other):
+        """
+        :param other:
+        :type other: TL1Session
+        :return:
+        """
+        return ConnectionParams.__eq__(self,
+                                       other)
+
+    def connect(self, prompt, logger):
+        """
+        Open connection to device / create session
+        :param prompt:
+        :param logger:
+        :return:
+        """
+
+        if not self._handler:
+            self._handler = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        server_address = (self.host, self.port)
+        self._handler.connect(server_address)
+        self._handler.settimeout(self._timeout)
+
+        if self.on_session_start and callable(self.on_session_start):
+            self.on_session_start(self, logger)
+        self._active = True
+
+    def hardware_expect(self, command, expected_string, logger, action_map=None, error_map=None, timeout=None,
+                        retries=None, check_action_loop_detector=True, empty_loop_timeout=None,
+                        remove_command_from_output=True, **optional_args):
+
+        if ';:system:error?' not in command.lower():
+            command += ';:system:error?'
+
+        statusre = r'([-0-9]+), "(.*)"[\r\n]*$'
+
+        remove_command_from_output = False  # avoid 'multiple repeat' error, bug in expect_session
+
+        rv = super(SCPISession, self).hardware_expect(command, statusre, logger, action_map, error_map, timeout,
+                                                      retries, check_action_loop_detector, empty_loop_timeout,
+                                                      remove_command_from_output, **optional_args)
+
+        m = re.search(statusre, rv)
+        if not m:
+            raise Exception('Status code not found in output: %s' % rv)
+        code, message = m.groups()
+        if code < 0:
+            raise Exception('SCPI error: %d: %s' % (code, message))
+
+        return rv
+
 class _{{ cookiecutter.model_name.replace(' ', '') }}CliHandler(CliHandlerImpl):
     def __init__(self, cli, logger, cli_type, host, port, username, password):
         super(_{{ cookiecutter.model_name.replace(' ', '') }}CliHandler, self).__init__(cli, None, logger, None)
@@ -186,9 +247,9 @@ class _{{ cookiecutter.model_name.replace(' ', '') }}CliHandler(CliHandlerImpl):
         self.enable_mode = modes[{{ cookiecutter.model_name.replace(' ', '') }}EnableCommandMode]
         self.config_mode = modes[{{ cookiecutter.model_name.replace(' ', '') }}ConfigCommandMode]
 
-        if cli_type.lower() == 'tl1':
-            # Sending an empty line to probe for the current prompt doesn't work for TL1.
-            # With this workaround, TL1 is always considered to be in the default mode.
+        if cli_type.lower() in ['tl1', 'scpi']:
+            # Sending an empty line to probe for the current prompt doesn't work for TL1 or SCPI.
+            # With this workaround, the session is always considered to be in the default mode.
             CommandModeHelper.determine_current_mode = staticmethod(lambda o1, o2, o3: self.default_mode)
 
     @property
@@ -218,6 +279,8 @@ class _{{ cookiecutter.model_name.replace(' ', '') }}CliHandler(CliHandlerImpl):
             new_sessions = self._telnet_session()
         elif self.cli_type.lower() == TL1Session.SESSION_TYPE.lower():
             new_sessions = self._tl1_session()
+        elif self.cli_type.lower() == SCPISession.SESSION_TYPE.lower():
+            new_sessions = self._scpi_session()
         else:
             new_sessions = [self._ssh_session(), self._telnet_session()]
         return new_sessions
@@ -232,6 +295,10 @@ class _{{ cookiecutter.model_name.replace(' ', '') }}CliHandler(CliHandlerImpl):
 
     def _tl1_session(self):
         return TL1Session(self.resource_address, self.username, self.password, self.port, self.on_session_start,
+                          loop_detector_max_action_loops=10000)
+
+    def _scpi_session(self):
+        return SCPISession(self.resource_address, self.port, self.on_session_start,
                           loop_detector_max_action_loops=10000)
 
 
@@ -262,7 +329,8 @@ class {{ cookiecutter.model_name.replace(' ', '') }}CliConnection:
 
     def tl1_command(self, cmd):
         """
-        Executes an arbitrary TL1 command, with the switch name and incrementing command number managed automatically.
+        Executes an arbitrary TL1 command, with the switch name and incrementing
+        command number managed automatically and errors checked automatically
 
         :param cmd: A TL1 command like "RTRV-NETYPE:{name}::{counter}:;", where "{name}" and "{counter}" will be automatically substituted with the switch name and an incrementing counter
         :return: str: TL1 command output including the status
@@ -270,6 +338,17 @@ class {{ cookiecutter.model_name.replace(' ', '') }}CliConnection:
         """
         with self.get_default_session() as session:
             return session.send_command(**TL1_COMMAND.get_command(command=cmd))
+
+    def scpi_command(self, cmd, ):
+        """
+        Executes an arbitrary SCPI command, with automatic error check
+
+        :param cmd: An SCPI command like ":OXC:SWITch:CONNect:STATe?"
+        :return: str: SCPI command output including the error status
+        :raises: Exception: If the error status is < 0
+        """
+        with self.get_default_session() as session:
+            return session.send_command(**SCPI_COMMAND.get_command(command=cmd))
 
     def show_version(self):
         with self.get_default_session() as session:
