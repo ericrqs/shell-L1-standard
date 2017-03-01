@@ -223,6 +223,7 @@ class SCPISession(TCPSession):
 
         return rv
 
+
 class _{{ cookiecutter.model_name.replace(' ', '') }}CliHandler(CliHandlerImpl):
     def __init__(self, cli, logger):
         super(_{{ cookiecutter.model_name.replace(' ', '') }}CliHandler, self).__init__(cli, None, logger, None)

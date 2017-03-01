@@ -54,7 +54,7 @@ class {{cookiecutter.model_name.replace(' ', '')}}L1Handler(L1HandlerBase):
         _, self._blade_name_template, self._port_name_template = o.get("common_variable", {}).get("resource_name",
             ['Unused', 'Blade {address}', 'Port {address}'])
 
-        self._command_mode_lc = o.get("common_variable", {}).get("command_mode", 'tl1').lower()
+        self._command_mode_lc = o.get("common_variable", {}).get("connection_mode", 'tl1').lower()
 
         self._connection.set_resource_address(address)
         self._connection.set_port(port)
