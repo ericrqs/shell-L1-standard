@@ -82,6 +82,29 @@ class {{cookiecutter.model_name.replace(' ', '')}}L1Handler(L1HandlerBase):
         # self._logger.info('version: %s' % o1)
         # self._logger.info('interfaces: %s' % o2)
         # ... parse data
+        # sw = L1DriverResourceInfo('', address, self._switch_family, self._switch_model, serial='-1')
+        #
+        # for module in range(3):
+        #     blade = L1DriverResourceInfo(self._blade_name_template.replace('{address}', str(module)),
+        #                                  '%s/%d' % (address, module),
+        #                                  self._blade_family,
+        #                                  self._blade_model,
+        #                                  serial='-1')
+        #     sw.add_subresource(blade)
+        #     for portaddr in range(5):
+        #         port = L1DriverResourceInfo(
+        #             self._port_name_template.replace('{address}', str(portaddr)),
+        #             '%s/%d/%d' % (address, module, portaddr),
+        #             self._port_family,
+        #             self._port_model,
+        #             map_path='%s/%d/%d' % (address, module, 4 - portaddr),
+        #             serial='-1')
+        #         # port.set_attribute('My Attribute 1', 'xxx', typename='String')
+        #         # port.set_attribute('My Attribute 2', 'yyy', typename='String')
+        #         blade.add_subresource(port)
+        #
+        # self._logger.info('get_resource_description returning xml: [[[' + sw.to_string() + ']]]')
+        # return sw
 
         if self._command_mode_lc == 'tl1':
             psize = self._connection.tl1_command("RTRV-EQPT:{name}:SYSTEM:{counter}:::PARAMETER=SIZE;")
@@ -209,6 +232,8 @@ class {{cookiecutter.model_name.replace(' ', '')}}L1Handler(L1HandlerBase):
 
         # SSH / Telnet
         # self._connection.my_command1(min_port, max_port)
+        # self._connection.set_vlan(min_port, 3)
+        # self._connection.set_vlan(max_port, 3)
 
     def map_bidi(self, src_port, dst_port, mapping_group_name):
         """
@@ -229,6 +254,8 @@ class {{cookiecutter.model_name.replace(' ', '')}}L1Handler(L1HandlerBase):
 
         # SSH / Telnet
         # self._connection.my_command2(min_port, max_port)
+        # self._connection.set_vlan(min_port, 3)
+        # self._connection.set_vlan(max_port, 3)
 
     def map_clear_to(self, src_port, dst_port):
         """
@@ -248,6 +275,8 @@ class {{cookiecutter.model_name.replace(' ', '')}}L1Handler(L1HandlerBase):
 
         # SSH / Telnet
         # self._connection.my_command3(min_port, max_port)
+        # self._connection.unset_vlan(min_port, 3)
+        # self._connection.unset_vlan(max_port, 3)
 
     def map_clear(self, src_port, dst_port):
         """
@@ -267,6 +296,8 @@ class {{cookiecutter.model_name.replace(' ', '')}}L1Handler(L1HandlerBase):
 
         # SSH / Telnet
         # self._connection.my_command3(min_port, max_port)
+        # self._connection.unset_vlan(min_port, 3)
+        # self._connection.unset_vlan(max_port, 3)
 
     def set_speed_manual(self, src_port, dst_port, speed, duplex):
         """

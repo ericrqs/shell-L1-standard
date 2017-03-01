@@ -1,0 +1,198 @@
+import json
+import os
+import re
+
+import sys
+
+from l1_driver_resource_info import L1DriverResourceInfo
+from l1_handler_base import L1HandlerBase
+from l1sshtest_cli_connection import L1SSHTestCliConnection, L1SSHTestDefaultCommandMode, L1SSHTestEnableCommandMode, L1SSHTestConfigCommandMode
+
+
+class L1SSHTestL1Handler(L1HandlerBase):
+
+    def __init__(self, logger):
+        self._logger = logger
+
+        self._switch_family = None
+        self._blade_family = None
+        self._port_family = None
+        self._switch_model = None
+        self._blade_model = None
+        self._port_model = None
+        self._blade_name_template = None
+        self._port_name_template = None
+
+        self._command_mode_lc = None
+
+        self._connection = L1SSHTestCliConnection(self._logger)
+
+    def login(self, address, username, password):
+        """
+        :param address: str
+        :param username: str
+        :param password: str
+        :return: None
+        """
+        try:
+            with open(os.path.join(os.path.dirname(sys.argv[0]), 'l1sshtest_runtime_configuration.json')) as f:
+                o = json.loads(f.read())
+        except Exception as e:
+            self._logger.warn('Failed to read JSON config file: ' + str(e))
+            o = {}
+
+        port = o.get("common_variable", {}).get("connection_port", 3082)
+
+        L1SSHTestDefaultCommandMode.PROMPT_REGEX = o.get("common_variable", {}).get("default_prompt", r'>\s*$')
+        L1SSHTestEnableCommandMode.PROMPT_REGEX = o.get("common_variable", {}).get("enable_prompt", r'#\s*$')
+        L1SSHTestConfigCommandMode.PROMPT_REGEX = o.get("common_variable", {}).get("config_prompt", r'[(]config.*[)]#\s*$')
+
+        self._switch_family, self._blade_family, self._port_family = o.get("common_variable", {}).get("resource_family_name",
+            ['L1 Optical Switch', 'L1 Optical Switch Blade', 'L1 Optical Switch Port'])
+        self._switch_model, self._blade_model, self._port_model = o.get("common_variable", {}).get("resource_model_name",
+            ['L1SSHTest', 'Blade L1SSHTest', 'Port L1SSHTest'])
+        _, self._blade_name_template, self._port_name_template = o.get("common_variable", {}).get("resource_name",
+            ['Unused', 'Blade {address}', 'Port {address}'])
+
+        self._command_mode_lc = o.get("common_variable", {}).get("connection_mode", 'tl1').lower()
+
+        self._connection.set_resource_address(address)
+        self._connection.set_port(port)
+        self._connection.set_username(username)
+        self._connection.set_password(password)
+        self._connection.set_cli_type(self._command_mode_lc)
+        self._logger.info('Connection will be %s to address %s on port %d with username %s' % (
+        self._command_mode_lc, address, port, username))
+
+    def logout(self):
+        """
+        :return: None
+        """
+        pass
+
+    def get_resource_description(self, address):
+        """
+        :param address: str: root address
+        :return: L1DriverResourceInfo
+        """
+
+        # SSH / Telnet
+        o1 = self._connection.show_version()
+        o2 = self._connection.show_interfaces()
+        self._logger.info('version: %s' % o1)
+        self._logger.info('interfaces: %s' % o2)
+        # ... parse data
+
+        sw = L1DriverResourceInfo('', address, self._switch_family, self._switch_model, serial='-1')
+
+        for module in range(3):
+            blade = L1DriverResourceInfo(self._blade_name_template.replace('{address}', str(module)),
+                                         '%s/%d' % (address, module),
+                                         self._blade_family,
+                                         self._blade_model,
+                                         serial='-1')
+            sw.add_subresource(blade)
+            for portaddr in range(5):
+                port = L1DriverResourceInfo(
+                    self._port_name_template.replace('{address}', str(portaddr)),
+                    '%s/%d/%d' % (address, module, portaddr),
+                    self._port_family,
+                    self._port_model,
+                    map_path='%s/%d/%d' % (address, module, 4 - portaddr),
+                    serial='-1')
+                # port.set_attribute('My Attribute 1', 'xxx', typename='String')
+                # port.set_attribute('My Attribute 2', 'yyy', typename='String')
+                blade.add_subresource(port)
+
+        self._logger.info('get_resource_description returning xml: [[[' + sw.to_string() + ']]]')
+        return sw
+
+    def map_uni(self, src_port, dst_port):
+        """
+        :param src_port: str: source port resource full address separated by '/'
+        :param dst_port: str: destination port resource full address separated by '/'
+        :return: None
+        """
+        self._logger.info('map_uni {} {}'.format(src_port, dst_port))
+
+        min_port = min(int(src_port.split('/')[-1]), int(dst_port.split('/')[-1]))
+        max_port = max(int(src_port.split('/')[-1]), int(dst_port.split('/')[-1]))
+
+        self._connection.set_vlan(min_port, 3)
+        self._connection.set_vlan(max_port, 3)
+
+    def map_bidi(self, src_port, dst_port, mapping_group_name):
+        """
+        :param src_port: str: source port resource full address separated by '/'
+        :param dst_port: str: destination port resource full address separated by '/'
+        :param mapping_group_name: str
+        :return: None
+        """
+        self._logger.info('map_bidi {} {} group={}'.format(src_port, dst_port, mapping_group_name))
+
+        min_port = min(int(src_port.split('/')[-1]), int(dst_port.split('/')[-1]))
+        max_port = max(int(src_port.split('/')[-1]), int(dst_port.split('/')[-1]))
+
+        self._connection.set_vlan(min_port, 3)
+        self._connection.set_vlan(max_port, 3)
+
+    def map_clear_to(self, src_port, dst_port):
+        """
+        :param src_port: str: source port resource full address separated by '/'
+        :param dst_port: str: destination port resource full address separated by '/'
+        :return: None
+        """
+        self._logger.info('map_clear_to {} {}'.format(src_port, dst_port))
+
+        min_port = min(int(src_port.split('/')[-1]), int(dst_port.split('/')[-1]))
+        max_port = max(int(src_port.split('/')[-1]), int(dst_port.split('/')[-1]))
+
+        self._connection.unset_vlan(min_port, 3)
+        self._connection.unset_vlan(max_port, 3)
+
+    def map_clear(self, src_port, dst_port):
+        """
+        :param src_port: str: source port resource full address separated by '/'
+        :param dst_port: str: destination port resource full address separated by '/'
+        :return: None
+        """
+        self._logger.info('map_clear {} {}'.format(src_port, dst_port))
+
+        min_port = min(int(src_port.split('/')[-1]), int(dst_port.split('/')[-1]))
+        max_port = max(int(src_port.split('/')[-1]), int(dst_port.split('/')[-1]))
+        self._connection.unset_vlan(min_port, 3)
+        self._connection.unset_vlan(max_port, 3)
+
+    def set_speed_manual(self, src_port, dst_port, speed, duplex):
+        """
+        :param src_port: str: source port resource full address separated by '/'
+        :param dst_port: str: destination port resource full address separated by '/'
+        :param speed: str
+        :param duplex: str
+        :return: None
+        """
+        self._logger.info('set_speed_manual {} {} {} {}'.format(src_port, dst_port, speed, duplex))
+
+    def set_state_id(self, state_id):
+        """
+        :param state_id: str
+        :return: None
+        """
+        self._logger.info('set_state_id {}'.format(state_id))
+
+    def get_attribute_value(self, address, attribute_name):
+        """
+        :param address: str
+        :param attribute_name: str
+        :return: str
+        """
+        self._logger.info('get_attribute_value {} {} -> "fakevalue"'.format(address, attribute_name))
+        return 'fakevalue'
+
+    def get_state_id(self):
+        """
+        :return: str
+        """
+        self._logger.info('get_state_id')
+        return '-1'
+

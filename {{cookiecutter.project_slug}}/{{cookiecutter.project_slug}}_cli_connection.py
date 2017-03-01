@@ -42,7 +42,7 @@ class {{ cookiecutter.model_name.replace(' ', '') }}DefaultCommandMode(CommandMo
 
 class {{cookiecutter.model_name.replace(' ', '') }}EnableCommandMode(CommandMode):
     PROMPT_REGEX = r'#\s*$'
-    ENTER_COMMAND = ''
+    ENTER_COMMAND = 'enable'
     EXIT_COMMAND = 'exit'
 
     def __init__(self):
@@ -54,7 +54,7 @@ class {{cookiecutter.model_name.replace(' ', '') }}EnableCommandMode(CommandMode
 
 class {{cookiecutter.model_name.replace(' ', '') }}ConfigCommandMode(CommandMode):
     PROMPT_REGEX = r'[(]config.*[)]#\s*$'
-    ENTER_COMMAND = ''
+    ENTER_COMMAND = 'configure terminal'
     EXIT_COMMAND = 'exit'
 
     def __init__(self):
@@ -83,6 +83,11 @@ SHOW_VERSION = CommandTemplate('show version', action_map=OrderedDict([
 SHOW_INTERFACES = CommandTemplate('show interfaces', action_map=OrderedDict([
     (r'--More--', lambda session, logger: session._send(' ', logger))
 ]))
+
+INTERFACE_ETHERNET = CommandTemplate('interface Ethernet{port}')
+SWITCHPORT_ACCESS_VLAN = CommandTemplate('switchport access vlan {vlan}')
+NO_SWITCHPORT_ACCESS_VLAN = CommandTemplate('no switchport access vlan {vlan}')
+EXIT = CommandTemplate('exit')
 
 MY_COMMAND1 = CommandTemplate('my_command1 {arg1} {arg2}', action_map=OrderedDict([
     (r'\[confirm\]', lambda session, logger: session.send_line('', logger)),
@@ -378,6 +383,18 @@ class {{ cookiecutter.model_name.replace(' ', '') }}CliConnection:
     def show_interfaces(self):
         with self.get_default_session() as session:
             return session.send_command(**SHOW_INTERFACES.get_command())
+
+    def set_vlan(self, port, vlan):
+        with self.get_config_session() as session:
+            session.send_command(**INTERFACE_ETHERNET.get_command(port=port))
+            session.send_command(**SWITCHPORT_ACCESS_VLAN.get_command(vlan=vlan))
+            session.send_command(**EXIT.get_command())
+
+    def unset_vlan(self, port, vlan):
+        with self.get_config_session() as session:
+            session.send_command(**INTERFACE_ETHERNET.get_command(port=port))
+            session.send_command(**NO_SWITCHPORT_ACCESS_VLAN.get_command(vlan=vlan))
+            session.send_command(**EXIT.get_command())
 
     def my_command1(self, input1, input2):
         with self.get_config_session() as session:
