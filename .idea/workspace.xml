@@ -2,8 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e52d047-5f65-49b6-b379-eff58c907cf3" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/compile_driver.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/driver.spec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/img/icon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/l1_driver.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/l1_driver_resource_info.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/l1_handler_base.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/l1sshtest_cli_connection.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/l1sshtest_datamodel.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/l1sshtest_l1_handler.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/l1sshtest_runtime_configuration.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/main.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/release/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/release/L1SSHTestDriver.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/release/l1sshtest_datamodel.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/release/l1sshtest_runtime_configuration.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/l1sshtest/version.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_cli_connection.py" afterPath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_cli_connection.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_l1_handler.py" afterPath="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_l1_handler.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -84,44 +102,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="{{cookiecutter.project_slug}}_cli_connection.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="{{cookiecutter.project_slug}}_cli_connection.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_cli_connection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="398" column="0" lean-forward="false" selection-start-line="398" selection-start-column="0" selection-end-line="398" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="l1sshtest_runtime_configuration.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/l1sshtest/l1sshtest_runtime_configuration.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="l1sshtest_l1_handler.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/l1sshtest/l1sshtest_l1_handler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-116">
-              <caret line="135" column="44" lean-forward="true" selection-start-line="135" selection-start-column="44" selection-end-line="135" selection-end-column="44" />
+            <state relative-caret-position="0">
+              <caret line="33" column="33" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#387#396#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="l1sshtest_cli_connection.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/l1sshtest/l1sshtest_cli_connection.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="398" column="0" lean-forward="true" selection-start-line="387" selection-start-column="0" selection-end-line="398" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -220,16 +208,15 @@
         <option value="$PROJECT_DIR$/l1sshtest/l1sshtest_runtime_configuration.json" />
         <option value="$PROJECT_DIR$/l1sshtest/l1sshtest_cli_connection.py" />
         <option value="$PROJECT_DIR$/l1sshtest/l1sshtest_l1_handler.py" />
-        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_cli_connection.py" />
         <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_l1_handler.py" />
+        <option value="$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_cli_connection.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="313" />
-    <option name="y" value="28" />
+    <option name="x" value="136" />
     <option name="width" value="1471" />
-    <option name="height" value="1011" />
+    <option name="height" value="867" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -269,20 +256,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="{{cookiecutter.project_slug}}" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shell-L1-standard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shell-L1-standard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="l1sshtest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -475,7 +448,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="313" y="28" width="1471" height="1011" extended-state="0" />
+    <frame x="136" y="0" width="1471" height="867" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23517098" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -775,7 +748,7 @@
     <entry file="file://$PROJECT_DIR$/l1sshtest/l1sshtest_cli_connection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="445">
-          <caret line="398" column="0" lean-forward="true" selection-start-line="387" selection-start-column="0" selection-end-line="398" selection-end-column="0" />
+          <caret line="398" column="0" lean-forward="false" selection-start-line="387" selection-start-column="0" selection-end-line="398" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -784,14 +757,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_cli_connection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="398" column="0" lean-forward="false" selection-start-line="398" selection-start-column="0" selection-end-line="398" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -808,10 +773,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/l1sshtest/l1sshtest_l1_handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-116">
-          <caret line="135" column="44" lean-forward="true" selection-start-line="135" selection-start-column="44" selection-end-line="135" selection-end-column="44" />
+        <state relative-caret-position="88">
+          <caret line="135" column="44" lean-forward="false" selection-start-line="135" selection-start-column="44" selection-end-line="135" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}_cli_connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="33" column="33" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#387#396#0" expanded="true" />
           </folding>
         </state>
       </provider>
